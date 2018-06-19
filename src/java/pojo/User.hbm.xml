@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.User" table="user" catalog="post" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usercatagory" class="pojo.Usercatagory" fetch="select">
+            <column name="UserCatagory_idUserCatagory" not-null="true" />
+        </many-to-one>
+        <property name="userFullName" type="string">
+            <column name="User_FullName" />
+        </property>
+        <property name="userDesignation" type="string">
+            <column name="User_Designation" length="45" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="User_Email" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="User_Password" />
+        </property>
+        <property name="userMobile" type="string">
+            <column name="User_Mobile" length="45" />
+        </property>
+        <property name="userNic" type="string">
+            <column name="User_Nic" length="45" />
+        </property>
+        <property name="userStatus" type="java.lang.Integer">
+            <column name="User_Status" />
+        </property>
+        <property name="userImagePath" type="string">
+            <column name="User_imagePath" />
+        </property>
+        <property name="userVerify" type="string">
+            <column name="User_verify" length="45" />
+        </property>
+        <set name="attachmantbyofficers" table="attachmantbyofficer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_idUser" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Attachmantbyofficer" />
+        </set>
+        <set name="procesesForUserFrom" table="proces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_From" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Proces" />
+        </set>
+        <set name="procesesForUserTo" table="proces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_To" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Proces" />
+        </set>
+        <set name="userhasdepartments" table="userhasdepartment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_idUser" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Userhasdepartment" />
+        </set>
+    </class>
+</hibernate-mapping>

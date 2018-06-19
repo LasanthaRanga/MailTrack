@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Docket" table="docket" catalog="post" optimistic-lock="version">
+        <id name="idDocket" type="java.lang.Integer">
+            <column name="idDocket" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="rack" class="pojo.Rack" fetch="select">
+            <column name="Rack_idRack" not-null="true" />
+        </many-to-one>
+        <property name="docketName" type="string">
+            <column name="Docket_Name" length="45" />
+        </property>
+        <property name="docketStatus" type="java.lang.Integer">
+            <column name="Docket_Status" />
+        </property>
+        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Docket_idDocket" not-null="true" />
+            </key>
+            <one-to-many class="pojo.File" />
+        </set>
+    </class>
+</hibernate-mapping>
