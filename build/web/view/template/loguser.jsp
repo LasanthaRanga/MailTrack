@@ -7,8 +7,15 @@
         Session hs = conn.NewHibernateUtil.getSessionFactory().openSession();
         try {
             pojo.User lu = (pojo.User) hs.load(pojo.User.class, luid);
-            Set pl = lu.getUsercatagory().getPrivileges();
+            Set<pojo.Privilege> pl = lu.getUsercatagory().getPrivileges();
 
+            for (pojo.Privilege privilege : pl) {
+                    privilege.getPrivilegeName();
+                }
+            
+            
+            
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
