@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/src/java/servlet/EmailSend.java</file>
-            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/web/view/attach.jsp</file>
-            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/web/view/mymail.jsp</file>
-            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/web/view/template/navbar.jsp</file>
-            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/src/java/Mail.java</file>
+            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/src/java/servlet/Login.java</file>
+            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/src/java/servlet/EmailVerify.java</file>
+            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/src/java/pojo/User.java</file>
+            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/web/view/login.jsp</file>
+            <file>file:/D:/Techno%20Action/Mail%20Track/NBprojrct/MailTrack/web/view/dipartment.jsp</file>
         </group>
     </open-files>
 </project-private>

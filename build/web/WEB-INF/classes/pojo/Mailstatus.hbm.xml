@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Mailstatus" table="mailstatus" catalog="post" optimistic-lock="version">
+        <id name="idMailStatus" type="java.lang.Integer">
+            <column name="idMailStatus" />
+            <generator class="identity" />
+        </id>
+        <property name="mailStatusName" type="string">
+            <column name="MailStatus_Name" length="45" />
+        </property>
+        <property name="mailStatusStatus" type="java.lang.Integer">
+            <column name="MailStatus_Status" />
+        </property>
+        <set name="proceses" table="proces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MailStatus_idMailStatus" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Proces" />
+        </set>
+        <set name="mailinfos" table="mailinfo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MailStatus_currentStatus" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Mailinfo" />
+        </set>
+    </class>
+</hibernate-mapping>

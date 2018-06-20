@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Cupboard" table="cupboard" catalog="post" optimistic-lock="version">
+        <id name="idCupboard" type="java.lang.Integer">
+            <column name="idCupboard" />
+            <generator class="identity" />
+        </id>
+        <property name="cupboardNo" type="string">
+            <column name="Cupboard_No" length="45" />
+        </property>
+        <property name="cupboardStatus" type="string">
+            <column name="Cupboard_Status" length="45" />
+        </property>
+        <set name="racks" table="rack" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cupboard_idCupboard" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Rack" />
+        </set>
+    </class>
+</hibernate-mapping>
