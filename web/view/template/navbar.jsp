@@ -19,7 +19,32 @@
         <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
         <!-- iframe removal -->
     </head>
+    <%@page import="java.util.ArrayList"%>
+    <%
 
+        ArrayList<String> plList = null;
+        if (request.getSession().getAttribute("luid") != null) {
+            if (request.getSession().getAttribute("pl") != null) {
+                plList = (ArrayList<String>) request.getSession().getAttribute("pl");
+                boolean ok = false;
+                for (String elem : plList) {
+                    if (elem.equals(pname)) {
+                        ok = true;
+                        break;
+                    } else {
+                        ok = false;
+                    }
+                }
+                if (!ok) {
+                    response.sendRedirect("../index.jsp");
+                }
+            }
+        } else {
+            response.sendRedirect("login.jsp");
+        }
+
+
+    %>
     <body class="">
         <div class="wrapper">
             <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
@@ -35,56 +60,95 @@
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
-                        
-<!--                        <li class="nav-item">
-                            <a class="nav-link" href="../examples/notifications.html">
-                                <i class="material-icons">notifications</i>
-                                <p>Notifications</p>
-                            </a>
-                        </li>-->
-                        
-                        <li class="nav-item <% if(pname.equals("dip"))out.print("active"); %>">
+
+
+                        <%  for (String pagename : plList) {
+                                if (pagename.equals("dip")) {%>
+                            <li class="nav-item <% if (pname.equals("dip")) {
+                                    out.print("active");
+                                } %>">
                             <a class="nav-link" href="../view/dipartment.jsp">
                                 <i class="material-icons">extension</i>
-                                <p>Dipartment</p>
+                                <p>Department</p>
                             </a>
                         </li>
-                        
-                        <li class="nav-item <% if(pname.equals("user_reg"))out.print("active"); %>">
+                        <% break;
+                                }
+                            } %>
+
+
+
+                        <% for (String pagename : plList) {
+                                if (pagename.equals("user_reg")) {%> 
+                            <li class="nav-item <% if (pname.equals("user_reg")) {
+                                    out.print("active");
+                                } %>">
                             <a class="nav-link" href="../view/user_registraton.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Registration</p>
                             </a>
                         </li>
-                        
-                         <li class="nav-item <% if(pname.equals("new"))out.print("active"); %>">
+                        <% break;
+                                }
+                            } %>
+
+                        <% for (String pagename : plList) {
+                                if (pagename.equals("new")) {%> 
+                            <li class="nav-item <% if (pname.equals("new")) {
+                                    out.print("active");
+                                } %>">
                             <a class="nav-link" href="../view/create_new.jsp">
                                 <i class="material-icons">mail_outline</i>
                                 <p>New Mail</p>
                             </a>
                         </li>
-                        
-                        <li class="nav-item <% if(pname.equals("received_all"))out.print("active"); %>">
+                        <% break;
+                                }
+                            } %>
+
+                        <% for (String pagename : plList) {
+                                if (pagename.equals("received_all")) {%> 
+                        <li class="nav-item <% if (pname.equals("received_all")) {
+                                out.print("active");
+                            } %>">
                             <a class="nav-link" href="../view/received_all.jsp">
                                 <i class="material-icons">move_to_inbox</i>
                                 <p>Received All</p>
                             </a>
                         </li>
-                        
-                        <li class="nav-item <% if(pname.equals("mymail"))out.print("active"); %>">
+                        <% break;
+                                }
+                            } %>
+
+
+                        <% for (String pagename : plList) {
+                                if (pagename.equals("mymail")) {%> 
+                        <li class="nav-item <% if (pname.equals("mymail")) {
+                                out.print("active");
+                            } %>">
                             <a class="nav-link" href="../view/mymail.jsp">
                                 <i class="material-icons">mail_outline</i>
                                 <p>Received Mail</p>
                             </a>
                         </li>
-                        
-                        <li class="nav-item <% if(pname.equals("edit"))out.print("active"); %>">
+                        <% break;
+                                }
+                            } %>
+
+                        <% for (String pagename : plList) {
+                                if (pagename.equals("edit")) {%> 
+                        <li class="nav-item <% if (pname.equals("edit")) {
+                                out.print("active");
+                            }%>">
                             <a class="nav-link" href="../view/edit.jsp">
                                 <i class="material-icons">comment</i>
                                 <p>Edit Mail</p>
                             </a>
                         </li>
-                       
+                        <% break;
+                                }
+                            }%>
+
                     </ul>
                 </div>
             </div>
@@ -102,24 +166,9 @@
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navigation">
-<!--                            <form class="navbar-form">
-                                <div class="input-group no-border">
-                                    <input type="text" value="" class="form-control" placeholder="Search...">
-                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                        <i class="material-icons">search</i>
-                                        <div class="ripple-container"></div>
-                                    </button>
-                                </div>
-                            </form>-->
+
                             <ul class="navbar-nav">
-<!--                                <li class="nav-item">
-                                    <a class="nav-link" href="#pablo">
-                                        <i class="material-icons">dashboard</i>
-                                        <p>
-                                            <span class="d-lg-none d-md-block">Stats</span>
-                                        </p>
-                                    </a>
-                                </li>-->
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">notifications</i>
@@ -136,14 +185,22 @@
                                         <a class="dropdown-item" href="#">Another One</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#pablo">
+
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
-                                        <p>
-                                            <span class="d-lg-none d-md-block">Account</span>
-                                        </p>
+                                        <!--                                        <p>
+                                                                                    <span class="d-lg-none d-md-block">Some Actions</span>
+                                                                                </p>-->
                                     </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="../LogOut">Sing Out</a>
+                                        <a class="dropdown-item" href="#">Other</a>
+                                    </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
