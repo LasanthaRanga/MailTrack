@@ -16,14 +16,14 @@
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Sender Name</label>
-                                        <input id="dipname" type="text" class="form-control" >
+                                        <input name="sender_name" type="text" class="form-control" >
                                     </div>
                                 </div>
 
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Institute</label>
-                                        <input id="dipname" type="text" class="form-control" >
+                                        <input name="institute" type="text" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -43,13 +43,13 @@
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Year</label>
-                                                <input name="year"  type="text" class="datepicker form-control"  value="2018">
+                                                <input name="ryear"  type="text" class="datepicker form-control"  value="2018">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Month</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="rmonth">
                                                     <option value="1">01 January</option>
                                                     <option value="2">02 February</option>
                                                     <option value="3">03 March</option>
@@ -69,7 +69,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Day</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="rdate">
                                                     <option value="1">01</option>
                                                     <option value="2">02</option>
                                                     <option value="3">03</option>
@@ -103,24 +103,11 @@
                                                 </select>
                                             </div>
                                         </div>
-
-
-
-
-
                                     </div>
-
-
-
                                 </div>
 
 
-
-
-
                                 <div class="col-md-6 pull-right">
-
-
                                     <div class="row " >
                                         <div class="col-md-12" >
                                             <h5 >Date of the latter</h5>
@@ -130,13 +117,13 @@
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Year</label>
-                                                <input name="year"  type="text" class="datepicker form-control"  value="2018">
+                                                <input name="lyear"  type="text" class="datepicker form-control"  value="2018">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Month</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="lmonth">
                                                     <option value="1">01 January</option>
                                                     <option value="2">02 February</option>
                                                     <option value="3">03 March</option>
@@ -156,7 +143,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Day</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="ldate">
                                                     <option value="1">01</option>
                                                     <option value="2">02</option>
                                                     <option value="3">03</option>
@@ -212,17 +199,16 @@
                                 <div class="col-md-2">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Page Count</label>
-                                        <input name="year"  type="text" class="datepicker form-control" required="">
+                                        <input name="pages"  type="text" class="datepicker form-control" required="">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">My Number</label>
-                                        <input name="year"  type="text" class="datepicker form-control" >
+                                        <input name="myno"  type="text" class="datepicker form-control" >
                                     </div>
                                 </div>
                             </div>
-
 
 
                             <div class="row">
@@ -230,7 +216,7 @@
                                     <div class="form-group label-floating">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Mail Category</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="mailcat">
                                                 <option value="1">Hand Write</option>
                                                 <option value="2">Email</option>
                                                 <option value="3">Post</option>
