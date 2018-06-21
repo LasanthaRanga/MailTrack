@@ -7,6 +7,8 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import pojo.Privilege;
 import pojo.User;
 
 /**
@@ -50,7 +53,15 @@ public class Login extends HttpServlet {
                         if (user != null) {
                             if (user.getUserStatus() == 0) {
                             } else if (user.getUserStatus() == 1) {
+
+                                ArrayList al = new ArrayList<String>();
+
                                 request.getSession().setAttribute("luid", user.getIdUser());
+                                Set<Privilege> pl = user.getUsercatagory().getPrivileges();
+                                for (pojo.Privilege privilege : pl) {
+                                    al.add(privilege.getPrivilegeName());
+                                }
+                                request.getSession().setAttribute("pl", al);
                                 response.sendRedirect("view/mymail.jsp");
                             }
                         } else {

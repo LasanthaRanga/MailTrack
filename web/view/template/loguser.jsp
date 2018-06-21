@@ -1,28 +1,10 @@
-<%@page import="java.util.Set"%>
-<%@page import="org.hibernate.Session"%>
+<%@page import="java.util.ArrayList"%>
+
 <%
-
+    ArrayList plList;
     if (request.getSession().getAttribute("luid") != null) {
-        int luid = Integer.parseInt(request.getSession().getAttribute("luid").toString());
-        Session hs = conn.NewHibernateUtil.getSessionFactory().openSession();
-        try {
-            pojo.User lu = (pojo.User) hs.load(pojo.User.class, luid);
-            Set<pojo.Privilege> pl = lu.getUsercatagory().getPrivileges();
-
-            for (pojo.Privilege privilege : pl) {
-                    privilege.getPrivilegeName();
-                }
-            
-            
-            
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            hs.close();
+        if (request.getSession().getAttribute("pl") != null) {
+            plList = (ArrayList<String>) request.getSession().getAttribute("pl");
         }
-
     }
-
-
 %>
