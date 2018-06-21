@@ -62,52 +62,60 @@
                     <ul class="nav">
 
 
-                        <%  for (String pagename : plList) {
-                                if (pagename.equals("dip")) {%>
-                            <li class="nav-item <% if (pname.equals("dip")) {
-                                    out.print("active");
-                                } %>">
+                        <%                            if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("dip")) {%>
+                        <li class="nav-item <% if (pname.equals("dip")) {
+                                out.print("active");
+                            } %>">
                             <a class="nav-link" href="../view/dipartment.jsp">
                                 <i class="material-icons">extension</i>
                                 <p>Department</p>
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             } %>
 
 
 
-                        <% for (String pagename : plList) {
-                                if (pagename.equals("user_reg")) {%> 
-                            <li class="nav-item <% if (pname.equals("user_reg")) {
-                                    out.print("active");
-                                } %>">
+                        <%
+                            if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("user_reg")) {%> 
+                        <li class="nav-item <% if (pname.equals("user_reg")) {
+                                out.print("active");
+                            } %>">
                             <a class="nav-link" href="../view/user_registraton.jsp">
                                 <i class="material-icons">person</i>
                                 <p>User Registration</p>
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             } %>
 
-                        <% for (String pagename : plList) {
-                                if (pagename.equals("new")) {%> 
-                            <li class="nav-item <% if (pname.equals("new")) {
-                                    out.print("active");
-                                } %>">
+                        <%   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("new")) {%> 
+                        <li class="nav-item <% if (pname.equals("new")) {
+                                out.print("active");
+                            } %>">
                             <a class="nav-link" href="../view/create_new.jsp">
                                 <i class="material-icons">mail_outline</i>
                                 <p>New Mail</p>
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             } %>
 
-                        <% for (String pagename : plList) {
-                                if (pagename.equals("received_all")) {%> 
+                        <%   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("received_all")) {%> 
                         <li class="nav-item <% if (pname.equals("received_all")) {
                                 out.print("active");
                             } %>">
@@ -117,12 +125,14 @@
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             } %>
 
 
-                        <% for (String pagename : plList) {
-                                if (pagename.equals("mymail")) {%> 
+                        <%   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("mymail")) {%> 
                         <li class="nav-item <% if (pname.equals("mymail")) {
                                 out.print("active");
                             } %>">
@@ -132,11 +142,13 @@
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             } %>
 
-                        <% for (String pagename : plList) {
-                                if (pagename.equals("edit")) {%> 
+                        <%   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("edit")) {%> 
                         <li class="nav-item <% if (pname.equals("edit")) {
                                 out.print("active");
                             }%>">
@@ -146,6 +158,7 @@
                             </a>
                         </li>
                         <% break;
+                                    }
                                 }
                             }%>
 
@@ -170,7 +183,7 @@
                             <ul class="navbar-nav">
 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">notifications</i>
                                         <span class="notification">5</span>
                                         <p>
