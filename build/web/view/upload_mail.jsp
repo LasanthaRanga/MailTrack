@@ -12,50 +12,57 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <div class="row">
 
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/lights.jpg">
-                                            <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                            <div class="caption">
-                                                <p>Page No 1</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/lights.jpg">
-                                            <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                            <div class="caption">
-                                                <p>Page No 2</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/lights.jpg">
-                                            <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                            <div class="caption">
-                                                <p>Page No 3</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/lights.jpg">
-                                            <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                            <div class="caption">
-                                                <p>Page No 4</p>
-                                            </div>
-                                        </a>
-                                    </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="/w3images/lights.jpg">
+                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                            <p>Page No 1</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="/w3images/lights.jpg">
+                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                            <p>Page No 2</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="/w3images/lights.jpg">
+                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                            <p>Page No 3</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="/w3images/lights.jpg">
+                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                            <p>Page No 4</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <form action="../UpMailDoc" method="post" enctype="multipart/form-data">
+
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">

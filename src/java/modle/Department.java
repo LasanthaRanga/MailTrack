@@ -18,6 +18,7 @@ public class Department {
 
     public HashMap<Integer, String> getDepartmentList() {
         Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction().commit();
         HashMap<Integer, String> hm = new HashMap<Integer, String>();
         try {
             Criteria criteria = session.createCriteria(pojo.Department.class);

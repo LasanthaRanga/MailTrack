@@ -20,6 +20,7 @@ public class UserCategory {
 
     public HashMap<Integer, String> getUserCatList() {
         Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction().commit();
         HashMap<Integer, String> hm = new HashMap<Integer, String>();
         try {
             Criteria criteria = session.createCriteria(pojo.Usercatagory.class);

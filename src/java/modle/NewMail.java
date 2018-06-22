@@ -12,20 +12,21 @@ import pojo.Mailinfo;
  */
 public class NewMail {
 
-    public boolean saveNewMail(String mailcat, String sender, String institute, Date r, Date l, String title, String myno, int pages, int uid) {
+    public boolean saveNewMail(int mailcat, String sender, String institute, Date r, Date l, String title, String myno, int pages, int uid) {
         Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
         Transaction beginTransaction = session.beginTransaction();
         try {
             Mailinfo mi = new Mailinfo();
             mi.setMailInfoSender(sender);
+            mi.setMailInfoTitle(title);
             mi.setMailInfoInstitute(institute);
             mi.setMailInfoReceivedDate(r);
             mi.setMailInfoDateOfLatter(l);
             mi.setMailInfoMyNo(myno);
             mi.setMailInfoPageCount(pages);
-
-            mi.setMailcatagory((pojo.Mailcatagory) session.createCriteria(pojo.Mailcatagory.class).add(Restrictions.eq("mailCatagoryCatagory", mailcat)).uniqueResult());
-            mi.setMailstatus((pojo.Mailstatus) session.load(pojo.Mailstatus.class, l));
+            pojo.Mailcatagory mc = (pojo.Mailcatagory)session.load(pojo.Mailcatagory.class, mailcat);
+            mi.setMailcatagory(mc);
+            mi.setMailstatus((pojo.Mailstatus) session.load(pojo.Mailstatus.class, 1));
             mi.setUser((pojo.User) session.load(pojo.User.class, uid));
             session.save(mi);
             beginTransaction.commit();

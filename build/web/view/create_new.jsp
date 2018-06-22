@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <form method="POST" action="../view/upload_mail.jsp">
+                        <form method="POST" action="../MailAdd">
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group">
