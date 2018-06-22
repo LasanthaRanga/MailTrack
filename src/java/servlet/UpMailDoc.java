@@ -5,13 +5,18 @@
  */
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -38,7 +43,46 @@ public class UpMailDoc extends HttpServlet {
             
             
             
-            
+            try {
+
+                DiskFileItemFactory fectory = new DiskFileItemFactory();
+
+                ServletFileUpload upload = new ServletFileUpload(fectory);
+
+                String txt = "";
+                String thumb = "";
+
+                List itList = upload.parseRequest(request);
+
+                for (Object object : itList) {
+
+                    FileItem fileItem = (FileItem) object;
+
+                    if (fileItem.isFormField()) {
+
+                        if (fileItem.getFieldName().equals("txt")) {
+
+                            txt = fileItem.toString();
+                        }
+
+                    } else if (fileItem.getFieldName().equals("fupload")) {
+
+                        thumb = Math.random() + fileItem.getName();
+
+                        File f = new File(getServletContext().getRealPath("/") + "fup/" + thumb);
+
+                        System.out.println(f.getPath());
+
+                        fileItem.write(f);
+
+                        System.out.println(fileItem.getSize() + "byte");
+
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             
             
             
