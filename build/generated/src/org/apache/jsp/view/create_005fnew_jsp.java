@@ -3,6 +3,7 @@ package org.apache.jsp.view;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.Map;
 import java.util.ArrayList;
 
 public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -48,6 +49,7 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\n');
       out.write('\n');
  String pname = "new";
       out.write('\n');
@@ -118,13 +120,14 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\n");
       out.write("\n");
       out.write("                        ");
-  for (String pagename : plList) {
-                                if (pagename.equals("dip")) {
+                            if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("dip")) {
       out.write("\n");
-      out.write("                            <li class=\"nav-item ");
+      out.write("                        <li class=\"nav-item ");
  if (pname.equals("dip")) {
-                                    out.print("active");
-                                } 
+                                out.print("active");
+                            } 
       out.write("\">\n");
       out.write("                            <a class=\"nav-link\" href=\"../view/dipartment.jsp\">\n");
       out.write("                                <i class=\"material-icons\">extension</i>\n");
@@ -133,6 +136,7 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             } 
       out.write("\n");
@@ -140,13 +144,15 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\n");
       out.write("\n");
       out.write("                        ");
- for (String pagename : plList) {
-                                if (pagename.equals("user_reg")) {
+
+                            if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("user_reg")) {
       out.write(" \n");
-      out.write("                            <li class=\"nav-item ");
+      out.write("                        <li class=\"nav-item ");
  if (pname.equals("user_reg")) {
-                                    out.print("active");
-                                } 
+                                out.print("active");
+                            } 
       out.write("\">\n");
       out.write("                            <a class=\"nav-link\" href=\"../view/user_registraton.jsp\">\n");
       out.write("                                <i class=\"material-icons\">person</i>\n");
@@ -155,18 +161,20 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             } 
       out.write("\n");
       out.write("\n");
       out.write("                        ");
- for (String pagename : plList) {
-                                if (pagename.equals("new")) {
+   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("new")) {
       out.write(" \n");
-      out.write("                            <li class=\"nav-item ");
+      out.write("                        <li class=\"nav-item ");
  if (pname.equals("new")) {
-                                    out.print("active");
-                                } 
+                                out.print("active");
+                            } 
       out.write("\">\n");
       out.write("                            <a class=\"nav-link\" href=\"../view/create_new.jsp\">\n");
       out.write("                                <i class=\"material-icons\">mail_outline</i>\n");
@@ -175,13 +183,15 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             } 
       out.write("\n");
       out.write("\n");
       out.write("                        ");
- for (String pagename : plList) {
-                                if (pagename.equals("received_all")) {
+   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("received_all")) {
       out.write(" \n");
       out.write("                        <li class=\"nav-item ");
  if (pname.equals("received_all")) {
@@ -195,14 +205,16 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             } 
       out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("                        ");
- for (String pagename : plList) {
-                                if (pagename.equals("mymail")) {
+   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("mymail")) {
       out.write(" \n");
       out.write("                        <li class=\"nav-item ");
  if (pname.equals("mymail")) {
@@ -216,13 +228,15 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             } 
       out.write("\n");
       out.write("\n");
       out.write("                        ");
- for (String pagename : plList) {
-                                if (pagename.equals("edit")) {
+   if (plList != null) {
+                                for (String pagename : plList) {
+                                    if (pagename.equals("edit")) {
       out.write(" \n");
       out.write("                        <li class=\"nav-item ");
  if (pname.equals("edit")) {
@@ -236,6 +250,7 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        </li>\n");
       out.write("                        ");
  break;
+                                    }
                                 }
                             }
       out.write("\n");
@@ -313,110 +328,166 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                <div class=\"col-md-7\">\n");
       out.write("                                    <div class=\"form-group\">\n");
       out.write("                                        <label class=\"bmd-label-floating\">Sender Name</label>\n");
-      out.write("                                        <input id=\"dipname\" type=\"text\" class=\"form-control\" >\n");
+      out.write("                                        <input name=\"sender_name\" type=\"text\" class=\"form-control\" >\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
-      out.write("\n");
       out.write("                                <div class=\"col-md-5\">\n");
       out.write("                                    <div class=\"form-group\">\n");
       out.write("                                        <label class=\"bmd-label-floating\">Institute</label>\n");
-      out.write("                                        <input id=\"dipname\" type=\"text\" class=\"form-control\" >\n");
+      out.write("                                        <input name=\"institute\" type=\"text\" class=\"form-control\" >\n");
       out.write("                                    </div>\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"row\" >\n");
-      out.write("                                <div class=\"col-md-6\" >\n");
-      out.write("                                    <h5 >Recived Date</h5>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"row\">\n");
-      out.write("                                <div class=\"col-md-1\">\n");
-      out.write("                                    <div class=\"form-group label-floating\">\n");
-      out.write("                                        <label class=\"control-label\">Year</label>\n");
-      out.write("                                        <input name=\"year\"  type=\"text\" class=\"datepicker form-control\"  value=\"2018\">\n");
+      out.write("                                <div class=\"col-md-6 pull-left\">\n");
+      out.write("                                    <div class=\"row\" >\n");
+      out.write("                                        <div class=\"col-md-6\" >\n");
+      out.write("                                            <h5 >Recived Date</h5>\n");
+      out.write("                                        </div>\n");
       out.write("                                    </div>\n");
-      out.write("                                </div>\n");
-      out.write("                                <div class=\"col-md-2\">\n");
-      out.write("                                    <div class=\"form-group label-floating\">\n");
-      out.write("                                        <label class=\"control-label\">Month</label>\n");
-      out.write("                                        <select class=\"form-control\">\n");
-      out.write("                                            <option value=\"1\">01 January</option>\n");
-      out.write("                                            <option value=\"2\">02 February</option>\n");
-      out.write("                                            <option value=\"3\">03 March</option>\n");
-      out.write("                                            <option value=\"4\">04 April</option>\n");
-      out.write("                                            <option value=\"5\">05 May</option>\n");
-      out.write("                                            <option value=\"6\">06 June</option>\n");
-      out.write("                                            <option value=\"7\">07 July</option>\n");
-      out.write("                                            <option value=\"8\">08 August</option>\n");
-      out.write("                                            <option value=\"9\">09 September</option>\n");
-      out.write("                                            <option value=\"10\">10 October</option>\n");
-      out.write("                                            <option value=\"11\">11 November</option>\n");
-      out.write("                                            <option value=\"12\">12 December</option>\n");
-      out.write("                                        </select>  \n");
-      out.write("                                    </div>\n");
-      out.write("                                </div>\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-md-1\">\n");
-      out.write("                                    <div class=\"form-group label-floating\">\n");
-      out.write("                                        <label class=\"control-label\">Day</label>\n");
-      out.write("                                        <select class=\"form-control\">\n");
-      out.write("                                            <option value=\"1\">01</option>\n");
-      out.write("                                            <option value=\"2\">02</option>\n");
-      out.write("                                            <option value=\"3\">03</option>\n");
-      out.write("                                            <option value=\"4\">04</option>\n");
-      out.write("                                            <option value=\"5\">05</option>\n");
-      out.write("                                            <option value=\"6\">06</option>\n");
-      out.write("                                            <option value=\"7\">07</option>\n");
-      out.write("                                            <option value=\"8\">08</option>\n");
-      out.write("                                            <option value=\"9\">09</option>\n");
-      out.write("                                            <option value=\"10\">10</option>\n");
-      out.write("                                            <option value=\"11\">11</option>\n");
-      out.write("                                            <option value=\"12\">12</option>\n");
-      out.write("                                            <option value=\"13\">13</option>\n");
-      out.write("                                            <option value=\"14\">14</option>\n");
-      out.write("                                            <option value=\"15\">15</option>\n");
-      out.write("                                            <option value=\"16\">16</option>\n");
-      out.write("                                            <option value=\"17\">17</option>\n");
-      out.write("                                            <option value=\"18\">18</option>\n");
-      out.write("                                            <option value=\"19\">19</option>\n");
-      out.write("                                            <option value=\"21\">21</option>\n");
-      out.write("                                            <option value=\"22\">22</option>\n");
-      out.write("                                            <option value=\"23\">23</option>\n");
-      out.write("                                            <option value=\"24\">24</option>\n");
-      out.write("                                            <option value=\"25\">25</option>\n");
-      out.write("                                            <option value=\"26\">26</option>\n");
-      out.write("                                            <option value=\"27\">27</option>\n");
-      out.write("                                            <option value=\"28\">28</option>\n");
-      out.write("                                            <option value=\"29\">29</option>\n");
-      out.write("                                            <option value=\"30\">30</option>\n");
-      out.write("                                            <option value=\"31\">31</option>\n");
-      out.write("                                        </select>\n");
-      out.write("                                    </div>\n");
-      out.write("                                </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                            </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                            <div class=\"row\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-md-3\">\n");
-      out.write("                                    <div class=\"form-group label-floating\">\n");
-      out.write("                                        <div class=\"form-group label-floating\">\n");
-      out.write("                                            <label class=\"control-label\">Mail Category</label>\n");
-      out.write("                                            <select class=\"form-control\">\n");
-      out.write("                                                <option value=\"1\">Hand Write</option>\n");
-      out.write("                                                <option value=\"2\">Email</option>\n");
-      out.write("                                                <option value=\"3\">Post</option>\n");
-      out.write("                                            </select>\n");
+      out.write("                                    <div class=\"row\">\n");
+      out.write("                                        <div class=\"col-md-2\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Year</label>\n");
+      out.write("                                                <input name=\"ryear\"  type=\"text\" class=\"datepicker form-control\"  value=\"2018\">\n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-md-4\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Month</label>\n");
+      out.write("                                                <select class=\"form-control\" name=\"rmonth\">\n");
+      out.write("                                                    <option value=\"0\"></option>\n");
+      out.write("                                                    <option value=\"1\">01 January</option>\n");
+      out.write("                                                    <option value=\"2\">02 February</option>\n");
+      out.write("                                                    <option value=\"3\">03 March</option>\n");
+      out.write("                                                    <option value=\"4\">04 April</option>\n");
+      out.write("                                                    <option value=\"5\">05 May</option>\n");
+      out.write("                                                    <option value=\"6\">06 June</option>\n");
+      out.write("                                                    <option value=\"7\">07 July</option>\n");
+      out.write("                                                    <option value=\"8\">08 August</option>\n");
+      out.write("                                                    <option value=\"9\">09 September</option>\n");
+      out.write("                                                    <option value=\"10\">10 October</option>\n");
+      out.write("                                                    <option value=\"11\">11 November</option>\n");
+      out.write("                                                    <option value=\"12\">12 December</option>\n");
+      out.write("                                                </select>  \n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-md-2\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Day</label>\n");
+      out.write("                                                <select class=\"form-control\" name=\"rdate\">\n");
+      out.write("                                                    <option value=\"0\"></option>\n");
+      out.write("                                                    <option value=\"1\">01</option>\n");
+      out.write("                                                    <option value=\"2\">02</option>\n");
+      out.write("                                                    <option value=\"3\">03</option>\n");
+      out.write("                                                    <option value=\"4\">04</option>\n");
+      out.write("                                                    <option value=\"5\">05</option>\n");
+      out.write("                                                    <option value=\"6\">06</option>\n");
+      out.write("                                                    <option value=\"7\">07</option>\n");
+      out.write("                                                    <option value=\"8\">08</option>\n");
+      out.write("                                                    <option value=\"9\">09</option>\n");
+      out.write("                                                    <option value=\"10\">10</option>\n");
+      out.write("                                                    <option value=\"11\">11</option>\n");
+      out.write("                                                    <option value=\"12\">12</option>\n");
+      out.write("                                                    <option value=\"13\">13</option>\n");
+      out.write("                                                    <option value=\"14\">14</option>\n");
+      out.write("                                                    <option value=\"15\">15</option>\n");
+      out.write("                                                    <option value=\"16\">16</option>\n");
+      out.write("                                                    <option value=\"17\">17</option>\n");
+      out.write("                                                    <option value=\"18\">18</option>\n");
+      out.write("                                                    <option value=\"19\">19</option>\n");
+      out.write("                                                    <option value=\"21\">21</option>\n");
+      out.write("                                                    <option value=\"22\">22</option>\n");
+      out.write("                                                    <option value=\"23\">23</option>\n");
+      out.write("                                                    <option value=\"24\">24</option>\n");
+      out.write("                                                    <option value=\"25\">25</option>\n");
+      out.write("                                                    <option value=\"26\">26</option>\n");
+      out.write("                                                    <option value=\"27\">27</option>\n");
+      out.write("                                                    <option value=\"28\">28</option>\n");
+      out.write("                                                    <option value=\"29\">29</option>\n");
+      out.write("                                                    <option value=\"30\">30</option>\n");
+      out.write("                                                    <option value=\"31\">31</option>\n");
+      out.write("                                                </select>\n");
+      out.write("                                            </div>\n");
       out.write("                                        </div>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-md-5\">\n");
+      out.write("                                <div class=\"col-md-6 pull-right\">\n");
+      out.write("                                    <div class=\"row \" >\n");
+      out.write("                                        <div class=\"col-md-12\" >\n");
+      out.write("                                            <h5 >Date of the latter</h5>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <div class=\"row\">\n");
+      out.write("                                        <div class=\"col-md-2\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Year</label>\n");
+      out.write("                                                <input name=\"lyear\"  type=\"text\" class=\"datepicker form-control\"  value=\"2018\">\n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-md-4\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Month</label>\n");
+      out.write("                                                <select class=\"form-control\" name=\"lmonth\">\n");
+      out.write("                                                    <option value=\"0\"></option>\n");
+      out.write("                                                    <option value=\"1\">01 January</option>\n");
+      out.write("                                                    <option value=\"2\">02 February</option>\n");
+      out.write("                                                    <option value=\"3\">03 March</option>\n");
+      out.write("                                                    <option value=\"4\">04 April</option>\n");
+      out.write("                                                    <option value=\"5\">05 May</option>\n");
+      out.write("                                                    <option value=\"6\">06 June</option>\n");
+      out.write("                                                    <option value=\"7\">07 July</option>\n");
+      out.write("                                                    <option value=\"8\">08 August</option>\n");
+      out.write("                                                    <option value=\"9\">09 September</option>\n");
+      out.write("                                                    <option value=\"10\">10 October</option>\n");
+      out.write("                                                    <option value=\"11\">11 November</option>\n");
+      out.write("                                                    <option value=\"12\">12 December</option>\n");
+      out.write("                                                </select>  \n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <div class=\"col-md-2\">\n");
+      out.write("                                            <div class=\"form-group label-floating\">\n");
+      out.write("                                                <label class=\"control-label\">Day</label>\n");
+      out.write("                                                <select class=\"form-control\" name=\"ldate\">\n");
+      out.write("                                                    <option value=\"0\"></option>\n");
+      out.write("                                                    <option value=\"1\">01</option>\n");
+      out.write("                                                    <option value=\"2\">02</option>\n");
+      out.write("                                                    <option value=\"3\">03</option>\n");
+      out.write("                                                    <option value=\"4\">04</option>\n");
+      out.write("                                                    <option value=\"5\">05</option>\n");
+      out.write("                                                    <option value=\"6\">06</option>\n");
+      out.write("                                                    <option value=\"7\">07</option>\n");
+      out.write("                                                    <option value=\"8\">08</option>\n");
+      out.write("                                                    <option value=\"9\">09</option>\n");
+      out.write("                                                    <option value=\"10\">10</option>\n");
+      out.write("                                                    <option value=\"11\">11</option>\n");
+      out.write("                                                    <option value=\"12\">12</option>\n");
+      out.write("                                                    <option value=\"13\">13</option>\n");
+      out.write("                                                    <option value=\"14\">14</option>\n");
+      out.write("                                                    <option value=\"15\">15</option>\n");
+      out.write("                                                    <option value=\"16\">16</option>\n");
+      out.write("                                                    <option value=\"17\">17</option>\n");
+      out.write("                                                    <option value=\"18\">18</option>\n");
+      out.write("                                                    <option value=\"19\">19</option>\n");
+      out.write("                                                    <option value=\"21\">21</option>\n");
+      out.write("                                                    <option value=\"22\">22</option>\n");
+      out.write("                                                    <option value=\"23\">23</option>\n");
+      out.write("                                                    <option value=\"24\">24</option>\n");
+      out.write("                                                    <option value=\"25\">25</option>\n");
+      out.write("                                                    <option value=\"26\">26</option>\n");
+      out.write("                                                    <option value=\"27\">27</option>\n");
+      out.write("                                                    <option value=\"28\">28</option>\n");
+      out.write("                                                    <option value=\"29\">29</option>\n");
+      out.write("                                                    <option value=\"30\">30</option>\n");
+      out.write("                                                    <option value=\"31\">31</option>\n");
+      out.write("                                                </select>\n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row\">\n");
+      out.write("                                <div class=\"col-md-7\">\n");
       out.write("                                    <div class=\"form-group label-floating\">\n");
       out.write("                                        <div class=\"form-group label-floating\">\n");
       out.write("                                            <label class=\"control-label\">Title</label>\n");
@@ -424,25 +495,42 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                                        </div>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
-      out.write("\n");
-      out.write("                            </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                            <div class=\"row\">\n");
-      out.write("\n");
       out.write("                                <div class=\"col-md-2\">\n");
-      out.write("                                    <label class=\"control-label\">Page Count</label>\n");
-      out.write("                                    <input name=\"year\"  type=\"text\" class=\"datepicker form-control\" required=\"\">\n");
+      out.write("                                    <div class=\"form-group label-floating\">\n");
+      out.write("                                        <label class=\"control-label\">Page Count</label>\n");
+      out.write("                                        <input name=\"pages\"  type=\"text\" class=\"datepicker form-control\" required=\"\">\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
-      out.write("\n");
       out.write("                                <div class=\"col-md-3\">\n");
-      out.write("                                    <label class=\"control-label\">My Number</label>\n");
-      out.write("                                    <input name=\"year\"  type=\"text\" class=\"datepicker form-control\" >\n");
+      out.write("                                    <div class=\"form-group label-floating\">\n");
+      out.write("                                        <label class=\"control-label\">My Number</label>\n");
+      out.write("                                        <input name=\"myno\"  type=\"text\" class=\"datepicker form-control\" >\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row\">\n");
+      out.write("                                <div class=\"col-md-3\">\n");
+      out.write("                                    <div class=\"form-group label-floating\">\n");
+      out.write("                                        <div class=\"form-group label-floating\">\n");
+      out.write("                                            <label class=\"control-label\">Mail Category</label>\n");
+      out.write("                                            <select class=\"form-control\" name=\"mailcat\">\n");
+      out.write("                                                <option value=\"0\">Select One</option>\n");
+      out.write("                                                ");
+ for(Map.Entry<Integer, String> cl :modle.GetInstans.getMailCatagory().getCatagoryList().entrySet()){ 
+      out.write("                                                \n");
+      out.write("                                                <option value=\"");
+      out.print(cl.getKey());
+      out.write('"');
+      out.write('>');
+      out.print(cl.getValue());
+      out.write("</option>                                                \n");
+      out.write("                                                ");
+ } 
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                                            </select>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <button type=\"submit\" id=\"\" class=\"btn btn-primary pull-right\">Add Mail</button>         \n");
       out.write("                        </form>\n");
@@ -450,9 +538,7 @@ public final class create_005fnew_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("\n");
       out.write("    </div>\n");
-      out.write("\n");
       out.write("</div>\n");
       out.write("<footer class=\"footer \">\n");
       out.write("    <div class=\"container-fluid\">\n");

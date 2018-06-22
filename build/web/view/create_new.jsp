@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String pname = "new";%>
 <%@include file="template/navbar.jsp" %>
@@ -19,7 +20,6 @@
                                         <input name="sender_name" type="text" class="form-control" >
                                     </div>
                                 </div>
-
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Institute</label>
@@ -27,18 +27,13 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
-
                                 <div class="col-md-6 pull-left">
-
                                     <div class="row" >
                                         <div class="col-md-6" >
                                             <h5 >Recived Date</h5>
                                         </div>
                                     </div>
-
-
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
@@ -50,6 +45,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Month</label>
                                                 <select class="form-control" name="rmonth">
+                                                    <option value="0"></option>
                                                     <option value="1">01 January</option>
                                                     <option value="2">02 February</option>
                                                     <option value="3">03 March</option>
@@ -65,11 +61,11 @@
                                                 </select>  
                                             </div>
                                         </div>
-
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Day</label>
                                                 <select class="form-control" name="rdate">
+                                                    <option value="0"></option>
                                                     <option value="1">01</option>
                                                     <option value="2">02</option>
                                                     <option value="3">03</option>
@@ -105,8 +101,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="col-md-6 pull-right">
                                     <div class="row " >
                                         <div class="col-md-12" >
@@ -124,6 +118,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Month</label>
                                                 <select class="form-control" name="lmonth">
+                                                    <option value="0"></option>
                                                     <option value="1">01 January</option>
                                                     <option value="2">02 February</option>
                                                     <option value="3">03 March</option>
@@ -139,11 +134,11 @@
                                                 </select>  
                                             </div>
                                         </div>
-
                                         <div class="col-md-2">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Day</label>
                                                 <select class="form-control" name="ldate">
+                                                    <option value="0"></option>
                                                     <option value="1">01</option>
                                                     <option value="2">02</option>
                                                     <option value="3">03</option>
@@ -179,14 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
-
-
-
-
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group label-floating">
@@ -209,17 +197,16 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Mail Category</label>
                                             <select class="form-control" name="mailcat">
-                                                <option value="1">Hand Write</option>
-                                                <option value="2">Email</option>
-                                                <option value="3">Post</option>
+                                                <option value="0">Select One</option>
+                                                <% for(Map.Entry<Integer, String> cl :modle.GetInstans.getMailCatagory().getCatagoryList().entrySet()){ %>                                                
+                                                <option value="<%=cl.getKey()%>"><%=cl.getValue()%></option>                                                
+                                                <% } %>
                                             </select>
                                         </div>
                                     </div>
@@ -231,8 +218,6 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <%@include file="template/footer.jsp" %>

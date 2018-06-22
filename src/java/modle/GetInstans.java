@@ -13,6 +13,8 @@ public class GetInstans {
 
     private static modle.UserCategory userCategory;
     private static modle.Department department;
+    private static modle.MailCatagory mailCatagory;
+    private static modle.NewMail newMail;
    
     /**
      * @return the userCategory
@@ -30,6 +32,22 @@ public class GetInstans {
     public static modle.Department getDepartment() {
         if(department==null){department = new Department();}
         return department;
+    }
+
+    /**
+     * @return the mailCatagory
+     */
+    public static modle.MailCatagory getMailCatagory() {
+        if(mailCatagory==null){mailCatagory = new MailCatagory();}
+        return mailCatagory;
+    }
+
+    /**
+     * @return the newMail
+     */
+    public static modle.NewMail getNewMail() {
+        if(newMail==null){newMail = new NewMail();}
+        return newMail;
     }
 
     

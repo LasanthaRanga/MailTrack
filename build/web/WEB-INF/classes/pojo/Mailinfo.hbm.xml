@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 22, 2018 9:23:15 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Mailinfo" table="mailinfo" catalog="post" optimistic-lock="version">
         <id name="idMailInfo" type="java.lang.Integer">
@@ -14,6 +14,9 @@
         <many-to-one name="mailstatus" class="pojo.Mailstatus" fetch="select">
             <column name="MailStatus_currentStatus" not-null="true" />
         </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
         <property name="mailInfoSender" type="string">
             <column name="MailInfo_Sender" />
         </property>
@@ -22,6 +25,9 @@
         </property>
         <property name="mailInfoReceivedDate" type="date">
             <column name="MailInfo_ReceivedDate" length="10" />
+        </property>
+        <property name="mailInfoDateOfLatter" type="date">
+            <column name="MailInfo_DateOfLatter" length="10" />
         </property>
         <property name="mailInfoTitle" type="string">
             <column name="MailInfo_Title" />

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 19, 2018 11:31:07 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 22, 2018 9:23:15 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.User" table="user" catalog="post" optimistic-lock="version">
         <id name="idUser" type="java.lang.Integer">
@@ -61,6 +61,12 @@
                 <column name="User_idUser" not-null="true" />
             </key>
             <one-to-many class="pojo.Userhasdepartment" />
+        </set>
+        <set name="mailinfos" table="mailinfo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_idUser" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Mailinfo" />
         </set>
     </class>
 </hibernate-mapping>

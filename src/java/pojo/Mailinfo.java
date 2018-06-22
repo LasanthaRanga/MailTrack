@@ -1,5 +1,5 @@
 package pojo;
-// Generated Jun 19, 2018 11:31:05 AM by Hibernate Tools 4.3.1
+// Generated Jun 22, 2018 9:23:13 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,9 +15,11 @@ public class Mailinfo  implements java.io.Serializable {
      private Integer idMailInfo;
      private Mailcatagory mailcatagory;
      private Mailstatus mailstatus;
+     private User user;
      private String mailInfoSender;
      private String mailInfoInstitute;
      private Date mailInfoReceivedDate;
+     private Date mailInfoDateOfLatter;
      private String mailInfoTitle;
      private String mailInfoAssessmentNo;
      private String mailInfoMyNo;
@@ -32,16 +34,19 @@ public class Mailinfo  implements java.io.Serializable {
     }
 
 	
-    public Mailinfo(Mailcatagory mailcatagory, Mailstatus mailstatus) {
+    public Mailinfo(Mailcatagory mailcatagory, Mailstatus mailstatus, User user) {
         this.mailcatagory = mailcatagory;
         this.mailstatus = mailstatus;
+        this.user = user;
     }
-    public Mailinfo(Mailcatagory mailcatagory, Mailstatus mailstatus, String mailInfoSender, String mailInfoInstitute, Date mailInfoReceivedDate, String mailInfoTitle, String mailInfoAssessmentNo, String mailInfoMyNo, Date mailInfoDeadline, Integer mailInfoPageCount, String mailInfoComment, Set<Proces> proceses, Set<Attachmant> attachmants, Set<Attachmantbyofficer> attachmantbyofficers) {
+    public Mailinfo(Mailcatagory mailcatagory, Mailstatus mailstatus, User user, String mailInfoSender, String mailInfoInstitute, Date mailInfoReceivedDate, Date mailInfoDateOfLatter, String mailInfoTitle, String mailInfoAssessmentNo, String mailInfoMyNo, Date mailInfoDeadline, Integer mailInfoPageCount, String mailInfoComment, Set<Proces> proceses, Set<Attachmant> attachmants, Set<Attachmantbyofficer> attachmantbyofficers) {
        this.mailcatagory = mailcatagory;
        this.mailstatus = mailstatus;
+       this.user = user;
        this.mailInfoSender = mailInfoSender;
        this.mailInfoInstitute = mailInfoInstitute;
        this.mailInfoReceivedDate = mailInfoReceivedDate;
+       this.mailInfoDateOfLatter = mailInfoDateOfLatter;
        this.mailInfoTitle = mailInfoTitle;
        this.mailInfoAssessmentNo = mailInfoAssessmentNo;
        this.mailInfoMyNo = mailInfoMyNo;
@@ -74,6 +79,13 @@ public class Mailinfo  implements java.io.Serializable {
     public void setMailstatus(Mailstatus mailstatus) {
         this.mailstatus = mailstatus;
     }
+    public User getUser() {
+        return this.user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
     public String getMailInfoSender() {
         return this.mailInfoSender;
     }
@@ -94,6 +106,13 @@ public class Mailinfo  implements java.io.Serializable {
     
     public void setMailInfoReceivedDate(Date mailInfoReceivedDate) {
         this.mailInfoReceivedDate = mailInfoReceivedDate;
+    }
+    public Date getMailInfoDateOfLatter() {
+        return this.mailInfoDateOfLatter;
+    }
+    
+    public void setMailInfoDateOfLatter(Date mailInfoDateOfLatter) {
+        this.mailInfoDateOfLatter = mailInfoDateOfLatter;
     }
     public String getMailInfoTitle() {
         return this.mailInfoTitle;

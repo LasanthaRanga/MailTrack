@@ -1,5 +1,5 @@
 package pojo;
-// Generated Jun 19, 2018 11:31:05 AM by Hibernate Tools 4.3.1
+// Generated Jun 22, 2018 9:23:13 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,6 +26,7 @@ public class User  implements java.io.Serializable {
      private Set<Proces> procesesForUserFrom = new HashSet<Proces>(0);
      private Set<Proces> procesesForUserTo = new HashSet<Proces>(0);
      private Set<Userhasdepartment> userhasdepartments = new HashSet<Userhasdepartment>(0);
+     private Set<Mailinfo> mailinfos = new HashSet<Mailinfo>(0);
 
     public User() {
     }
@@ -34,7 +35,7 @@ public class User  implements java.io.Serializable {
     public User(Usercatagory usercatagory) {
         this.usercatagory = usercatagory;
     }
-    public User(Usercatagory usercatagory, String userFullName, String userDesignation, String userEmail, String userPassword, String userMobile, String userNic, Integer userStatus, String userImagePath, String userVerify, Set<Attachmantbyofficer> attachmantbyofficers, Set<Proces> procesesForUserFrom, Set<Proces> procesesForUserTo, Set<Userhasdepartment> userhasdepartments) {
+    public User(Usercatagory usercatagory, String userFullName, String userDesignation, String userEmail, String userPassword, String userMobile, String userNic, Integer userStatus, String userImagePath, String userVerify, Set<Attachmantbyofficer> attachmantbyofficers, Set<Proces> procesesForUserFrom, Set<Proces> procesesForUserTo, Set<Userhasdepartment> userhasdepartments, Set<Mailinfo> mailinfos) {
        this.usercatagory = usercatagory;
        this.userFullName = userFullName;
        this.userDesignation = userDesignation;
@@ -49,6 +50,7 @@ public class User  implements java.io.Serializable {
        this.procesesForUserFrom = procesesForUserFrom;
        this.procesesForUserTo = procesesForUserTo;
        this.userhasdepartments = userhasdepartments;
+       this.mailinfos = mailinfos;
     }
    
     public Integer getIdUser() {
@@ -155,6 +157,13 @@ public class User  implements java.io.Serializable {
     
     public void setUserhasdepartments(Set<Userhasdepartment> userhasdepartments) {
         this.userhasdepartments = userhasdepartments;
+    }
+    public Set<Mailinfo> getMailinfos() {
+        return this.mailinfos;
+    }
+    
+    public void setMailinfos(Set<Mailinfo> mailinfos) {
+        this.mailinfos = mailinfos;
     }
 
 
