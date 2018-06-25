@@ -1,8 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Criteria"%>
 <%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="org.hibernate.Session"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String pname = "just_added";%>
 <%@include file="template/navbar.jsp" %>
 <div class="content">
@@ -18,18 +18,12 @@
                         <table class="table">
                             <thead class=" text-primary">
 
-                                <th>ID</th>
-                                
-                                <th>Date</th>
-                                <th>Institute </th>
-                                <!--<th>Sender Name</th>-->
-                                
-                                
-                                
-                                <th>Title</th>
-                                
-                                <th>More</th>
-                                
+                            <th>ID</th>
+                            <th>Sender Name</th>
+                            <th>Institute </th>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>More</th>
                             </thead>
                             <tbody>
 
@@ -41,17 +35,11 @@
 
                                 <tr>
                                     <td><%out.print(minfo.getIdMailInfo()); %></td>
-                                    
-<!--                                    <td<%out.print(minfo.getMailInfoSender());%></td>-->
-                                    
-                                    <td><%out.print(minfo.getMailInfoReceivedDate());%></td>
-                                    
+                                    <td><%out.print(minfo.getMailInfoSender());%></td>
                                     <td><%out.print(minfo.getMailInfoInstitute());%></td>
-                                    
-                                    
+                                    <td><%out.print(minfo.getMailInfoReceivedDate());%></td>
                                     <td><%out.print(minfo.getMailInfoTitle());%></td>
-                                    
-                                    <td><a href="../view/fullview.jsp" class="btn btn-info btn-sm"> Link</a></td>
+                                    <td><a href="../view/fullview.jsp?latter=<%out.print(minfo.getIdMailInfo());%>" class="btn btn-info btn-sm"> Link</a></td>
                                 </tr>
 
 

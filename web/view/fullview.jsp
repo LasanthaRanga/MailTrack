@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% String pname = "received_all";%>
+<%@page import="org.hibernate.criterion.Restrictions"%>
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Session"%>
+<% String pname = "just_added";%>
 <%@include file="template/navbar.jsp" %>
 <div class="content">
     <div class="container-fluid">
@@ -11,30 +14,89 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
+
+
                         <div class="row">
-                            <div class="col-md-8">
-                                <h5>Sender Name : <strong>Kamal Jayasekara</strong></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Institute : <strong>WDA</strong></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Receved Date : <strong>2018-10-10</strong></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Mail Category : <strong>Hand Write</strong></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Title : <strong>Water Billing </strong></h5>
-                            </div>                            
-                            <div class="col-md-4">
-                                <h5>Title : <strong>Page Count</strong></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Title : <strong>My Number</strong></h5>
+
+
+                            <%
+                                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
+                                imageSession.beginTransaction().commit();
+                                try {
+                                    pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));%>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5>Sender Name : <strong>Kamal Jayasekara</strong></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Institute : <strong>WDA</strong></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Receved Date : <strong>2018-10-10</strong></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Mail Category : <strong>Hand Write</strong></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Title : <strong>Water Billing </strong></h5>
+                                </div>                            
+                                <div class="col-md-4">
+                                    <h5>Title : <strong>Page Count</strong></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Title : <strong>My Number</strong></h5>
+                                </div>
+
                             </div>
 
+                            <%   List<pojo.Attachmant> alit = imageSession.createCriteria(pojo.Attachmant.class).add(Restrictions.eq("mailinfo", mailinfo)).list();
+                                     for (pojo.Attachmant atach : alit) {%>
+
+
+
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="<%=atach.getAttachmantPath()%>">
+                                        <img src="<%=atach.getAttachmantPath()%>" alt="Click Here To View" style="width:100%">
+                                        <div class="caption">
+                                            <p>No <%=atach.getAttachmantNumber()%></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    imageSession.close();
+                                }
+
+                            %>
+
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <hr>
 
 
