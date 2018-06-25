@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Criteria"%>
+<%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String pname = "received_all";%>
@@ -24,22 +27,7 @@
                             <tbody>
 
 
-                                <%
-                                    Session jasession = conn.NewHibernateUtil.getSessionFactory().openSession();
-                                    try {
-
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    } finally {
-                                        jasession.close();
-                                    }
-
-                                %>
+                               
 
 
 
