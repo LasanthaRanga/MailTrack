@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,13 +24,14 @@
     <%@page import="java.util.ArrayList"%>
     <%
 
-        ArrayList<String> plList = null;
+        HashMap<String, String> plList = null;
         if (request.getSession().getAttribute("luid") != null) {
             if (request.getSession().getAttribute("pl") != null) {
-                plList = (ArrayList<String>) request.getSession().getAttribute("pl");
+                plList = (HashMap<String, String>) request.getSession().getAttribute("pl");
                 boolean ok = false;
-                for (String elem : plList) {
-                    if (elem.equals(pname)) {
+
+                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                    if (entry.getKey().equals(pname)) {
                         ok = true;
                         break;
                     } else {
@@ -36,7 +39,11 @@
                     }
                 }
                 if (!ok) {
-                   response.sendRedirect("../index.jsp");
+                    for (Map.Entry<String, String> entry : plList.entrySet()) {
+                        if (entry.getValue() != null) {
+                            response.sendRedirect(entry.getValue());
+                        }
+                    }
                 }
             }
         } else {
@@ -63,8 +70,8 @@
 
 
                         <%                            if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("dip")) {%>
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("dip")) {%>
                         <li class="nav-item <% if (pname.equals("dip")) {
                                 out.print("active");
                             } %>">
@@ -82,8 +89,8 @@
 
                         <%
                             if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("user_reg")) {%> 
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("user_reg")) {%> 
                         <li class="nav-item <% if (pname.equals("user_reg")) {
                                 out.print("active");
                             } %>">
@@ -98,8 +105,8 @@
                             } %>
 
                         <%   if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("new")) {%> 
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("new")) {%> 
                         <li class="nav-item <% if (pname.equals("new")) {
                                 out.print("active");
                             } %>">
@@ -114,8 +121,8 @@
                             } %>
 
                         <%   if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("received_all")) {%> 
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("received_all")) {%> 
                         <li class="nav-item <% if (pname.equals("received_all")) {
                                 out.print("active");
                             } %>">
@@ -131,8 +138,8 @@
 
 
                         <%   if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("mymail")) {%> 
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("mymail")) {%> 
                         <li class="nav-item <% if (pname.equals("mymail")) {
                                 out.print("active");
                             } %>">
@@ -147,14 +154,32 @@
                             } %>
 
                         <%   if (plList != null) {
-                                for (String pagename : plList) {
-                                    if (pagename.equals("edit")) {%> 
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("edit")) {%> 
                         <li class="nav-item <% if (pname.equals("edit")) {
                                 out.print("active");
                             }%>">
                             <a class="nav-link" href="../view/edit.jsp">
                                 <i class="material-icons">comment</i>
                                 <p>Edit Mail</p>
+                            </a>
+                        </li>
+                        <% break;
+                                    }
+                                }
+                            }%>
+                            
+                            
+                            
+                            <%   if (plList != null) {
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("just_added")) {%> 
+                        <li class="nav-item <% if (pname.equals("just_added")) {
+                                out.print("active");
+                            }%>">
+                            <a class="nav-link" href="../view/justadded.jsp">
+                                <i class="material-icons">comment</i>
+                                <p>Just Added</p>
                             </a>
                         </li>
                         <% break;

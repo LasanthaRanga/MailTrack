@@ -8,6 +8,8 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,12 +56,14 @@ public class Login extends HttpServlet {
                             if (user.getUserStatus() == 0) {
                             } else if (user.getUserStatus() == 1) {
 
-                                ArrayList al = new ArrayList<String>();
-
+                               // ArrayList al = new ArrayList<String>();
+                                HashMap<String,String> al = new HashMap<>();
+                                
                                 request.getSession().setAttribute("luid", user.getIdUser());
                                 Set<Privilege> pl = user.getUsercatagory().getPrivileges();
                                 for (pojo.Privilege privilege : pl) {
-                                    al.add(privilege.getPrivilegeName());
+                                    al.put(privilege.getPrivilegeName(), privilege.getPrivilegePath());
+                                   // al.add(privilege.getPrivilegeName());
                                 }
                                 request.getSession().setAttribute("pl", al);
                                 response.sendRedirect("view/mymail.jsp");
