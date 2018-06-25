@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.criterion.Restrictions"%>
+<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String pname = "upload_mail";
 %>
@@ -16,50 +19,42 @@
 
 
                         <div class="row">
+
+
+                            <%
+                                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
+                                imageSession.beginTransaction().commit();
+                                try {
+
+                                    List<pojo.Attachmant> alit = imageSession.createCriteria(pojo.Attachmant.class).add(Restrictions.eq("mailinfo", imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter"))))).list();
+                                    for (pojo.Attachmant atach : alit) {%>
+
+
+
                             <div class="col-md-3">
                                 <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
+                                    <a href="<%=atach.getAttachmantPath()%>">
+                                        <img src="<%=atach.getAttachmantPath()%>" alt="Click Here To View" style="width:100%">
                                         <div class="caption">
-                                            <p>Page No 1</p>
+                                            <p>No <%=atach.getAttachmantNumber()%></p>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 2</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 3</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 4</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <% }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    imageSession.close();
+                                }
+
+                            %>
+
                         </div>
 
 
-
+                            <hr>
 
                         <form action="../UpMailDoc" method="post" enctype="multipart/form-data">
 
@@ -67,27 +62,39 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Page No</label>
-                                        <input id="" type="number" class="form-control"/>
+                                        <input name="pageNo" type="number" class="form-control"/>
                                     </div>
-                                    <input name="SelectFile" type="file" id="" class="btn-info"/>
+                                    <input name="fupload" type="file" id="" class="btn-info"/>
+                                    <input name="latter" type="hidden" id="" value="<%=request.getParameter("latter")%>">
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary">Update Profile</button>
+                                        <button type="submit" class="btn btn-lg btn-primary"> Upload </button>
                                     </div>
                                 </div>
 
                             </div>
                         </form>
+
+                        <form action="create_new.jsp" method="POST">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-lg btn-success pull-right"> All Files Upload Complete </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>        
                     </div>
                 </div>
-                
-                
-                
-                
+
+
+
+
             </div>
 
         </div>

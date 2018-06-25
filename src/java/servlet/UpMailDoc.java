@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import java.io.File;
@@ -39,10 +34,7 @@ public class UpMailDoc extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
-            
-            
-            
+
             try {
 
                 DiskFileItemFactory fectory = new DiskFileItemFactory();
@@ -50,7 +42,9 @@ public class UpMailDoc extends HttpServlet {
                 ServletFileUpload upload = new ServletFileUpload(fectory);
 
                 String txt = "";
+                String latterNo = "";
                 String thumb = "";
+                String path = "";
 
                 List itList = upload.parseRequest(request);
 
@@ -60,36 +54,41 @@ public class UpMailDoc extends HttpServlet {
 
                     if (fileItem.isFormField()) {
 
-                        if (fileItem.getFieldName().equals("txt")) {
+                        if (fileItem.getFieldName().equals("pageNo")) {
 
                             txt = fileItem.toString();
+                            txt = fileItem.getString();
+                            //  System.out.println(txt);
+                        }
+                        if (fileItem.getFieldName().equals("latter")) {
+
+                            latterNo = fileItem.toString();
+                            latterNo = fileItem.getString();
+                            //  System.out.println(latterNo);
                         }
 
                     } else if (fileItem.getFieldName().equals("fupload")) {
-
-                        thumb = Math.random() + fileItem.getName();
+                        thumb = "L"+latterNo + "_P" + txt + "_" + Math.random() + fileItem.getName();
 
                         File f = new File(getServletContext().getRealPath("/") + "fup/" + thumb);
-
-                        System.out.println(f.getPath());
-
+                        path = "../fup/" + thumb;
                         fileItem.write(f);
 
                         System.out.println(fileItem.getSize() + "byte");
-
+                        System.out.print(latterNo + "  = Latter No");
+                        System.out.print(txt + "  = number");
                     }
                 }
-
+                boolean uploadInfo = modle.GetInstans.getUploadMail().uploadInfo(path, Integer.parseInt(txt), Integer.parseInt(latterNo));
+                if (uploadInfo) {
+                    response.sendRedirect("view/upload_mail.jsp?latter=" + latterNo);
+                } else {
+                    //upload save eroor
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-            
-            
-            
-            
-            
-            
+
         }
     }
 

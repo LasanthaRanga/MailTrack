@@ -15,6 +15,7 @@ public class GetInstans {
     private static modle.Department department;
     private static modle.MailCatagory mailCatagory;
     private static modle.NewMail newMail;
+    private static modle.UploadMail uploadMail;
    
     /**
      * @return the userCategory
@@ -48,6 +49,14 @@ public class GetInstans {
     public static modle.NewMail getNewMail() {
         if(newMail==null){newMail = new NewMail();}
         return newMail;
+    }
+
+    /**
+     * @return the uploadMail
+     */
+    public static modle.UploadMail getUploadMail() {
+        if(uploadMail==null){uploadMail = new UploadMail();}
+        return uploadMail;
     }
 
     

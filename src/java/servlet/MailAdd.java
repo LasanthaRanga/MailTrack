@@ -72,9 +72,9 @@ public class MailAdd extends HttpServlet {
                                             System.out.println(mailcat);
                                             
                                             
-                                         boolean saveNewMail = modle.GetInstans.getNewMail().saveNewMail(mailcat, sender, institute, rdate, ldate, title, myno, Integer.parseInt(pages), Integer.parseInt(request.getSession().getAttribute("luid").toString()));
-                                          if (saveNewMail) {
-                                              response.sendRedirect("view/upload_mail.jsp");
+                                         int saveNewMail = modle.GetInstans.getNewMail().saveNewMail(mailcat, sender, institute, rdate, ldate, title, myno, Integer.parseInt(pages), Integer.parseInt(request.getSession().getAttribute("luid").toString()));
+                                          if (saveNewMail>0) {
+                                              response.sendRedirect("view/upload_mail.jsp?latter="+saveNewMail);
                                             } else {
                                           }
                                         } else {
