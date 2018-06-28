@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card card-profile">
-                    <div class="card-avatar">
+<!--                    <div class="card-avatar">
                         <a href="#pablo">
                             <img class="img" src="../assets/img/faces/marc.jpg" />
                         </a>
-                    </div>
+                    </div>-->
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">User Profile</h4>
                         <p class="card-category">Complete user profile</p>

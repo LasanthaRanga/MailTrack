@@ -293,6 +293,33 @@ public final class justadded_jsp extends org.apache.jasper.runtime.HttpJspBase
                                 }
                             }
       out.write("\n");
+      out.write("                            \n");
+      out.write("                            \n");
+      out.write("                            \n");
+      out.write("                            ");
+   if (plList != null) {
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("allfor_handl")) {
+      out.write(" \n");
+      out.write("                        <li class=\"nav-item ");
+ if (pname.equals("allfor_handl")) {
+                                out.print("active");
+                            }
+      out.write("\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"../view/allforhandl.jsp\">\n");
+      out.write("                                <i class=\"material-icons\">comment</i>\n");
+      out.write("                                <p>For Send </p>\n");
+      out.write("                            </a>\n");
+      out.write("                        </li>\n");
+      out.write("                        ");
+ break;
+                                    }
+                                }
+                            }
+      out.write("\n");
+      out.write("                            \n");
+      out.write("                            \n");
+      out.write("                            \n");
       out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
@@ -365,18 +392,12 @@ public final class justadded_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <table class=\"table\">\n");
       out.write("                            <thead class=\" text-primary\">\n");
       out.write("\n");
-      out.write("                                <th>ID</th>\n");
-      out.write("                                \n");
-      out.write("                                <th>Date</th>\n");
-      out.write("                                <th>Institute </th>\n");
-      out.write("                                <!--<th>Sender Name</th>-->\n");
-      out.write("                                \n");
-      out.write("                                \n");
-      out.write("                                \n");
-      out.write("                                <th>Title</th>\n");
-      out.write("                                \n");
-      out.write("                                <th>More</th>\n");
-      out.write("                                \n");
+      out.write("                            <th>ID</th>\n");
+      out.write("                            <th>Sender Name</th>\n");
+      out.write("                            <th>Institute </th>\n");
+      out.write("                            <th>Date</th>\n");
+      out.write("                            <th>Title</th>\n");
+      out.write("                            <th>More</th>\n");
       out.write("                            </thead>\n");
       out.write("                            <tbody>\n");
       out.write("\n");
@@ -392,25 +413,21 @@ public final class justadded_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <td>");
 out.print(minfo.getIdMailInfo()); 
       out.write("</td>\n");
-      out.write("                                    \n");
-      out.write("<!--                                    <td");
-out.print(minfo.getMailInfoSender());
-      out.write("</td>-->\n");
-      out.write("                                    \n");
       out.write("                                    <td>");
-out.print(minfo.getMailInfoReceivedDate());
+out.print(minfo.getMailInfoSender());
       out.write("</td>\n");
-      out.write("                                    \n");
       out.write("                                    <td>");
 out.print(minfo.getMailInfoInstitute());
       out.write("</td>\n");
-      out.write("                                    \n");
-      out.write("                                    \n");
+      out.write("                                    <td>");
+out.print(minfo.getMailInfoReceivedDate());
+      out.write("</td>\n");
       out.write("                                    <td>");
 out.print(minfo.getMailInfoTitle());
       out.write("</td>\n");
-      out.write("                                    \n");
-      out.write("                                    <td><a href=\"../view/fullview.jsp\" class=\"btn btn-info btn-sm\"> Link</a></td>\n");
+      out.write("                                    <td><a href=\"../view/fullview.jsp?latter=");
+out.print(minfo.getIdMailInfo());
+      out.write("\" class=\"btn btn-info btn-sm\"> Link</a></td>\n");
       out.write("                                </tr>\n");
       out.write("\n");
       out.write("\n");

@@ -186,6 +186,27 @@
                                     }
                                 }
                             }%>
+                            
+                            
+                            
+                            <%   if (plList != null) {
+                                for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                    if (entry.getKey().equals("allfor_handl")) {%> 
+                        <li class="nav-item <% if (pname.equals("allfor_handl")) {
+                                out.print("active");
+                            }%>">
+                            <a class="nav-link" href="../view/allforhandl.jsp">
+                                <i class="material-icons">comment</i>
+                                <p>For Send </p>
+                            </a>
+                        </li>
+                        <% break;
+                                    }
+                                }
+                            }%>
+                            
+                            
+                            
 
                     </ul>
                 </div>

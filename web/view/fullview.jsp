@@ -26,31 +26,31 @@
                                     pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));%>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <h5>Sender Name : <strong>Kamal Jayasekara</strong></h5>
+                                    <h5>Sender Name : <strong><%=mailinfo.getMailInfoSender() %></strong></h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <h5>Institute : <strong>WDA</strong></h5>
+                                    <h5>Institute : <strong><%=mailinfo.getMailInfoInstitute() %></strong></h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <h5>Receved Date : <strong>2018-10-10</strong></h5>
+                                    <h5>Receved Date : <strong><%=mailinfo.getMailInfoReceivedDate() %></strong></h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <h5>Mail Category : <strong>Hand Write</strong></h5>
+                                    <h5>Mail Category : <strong><%=mailinfo.getMailcatagory().getMailCatagoryCatagory() %></strong></h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <h5>Title : <strong>Water Billing </strong></h5>
+                                    <h5>Title : <strong><%=mailinfo.getMailInfoTitle() %></strong></h5>
                                 </div>                            
                                 <div class="col-md-4">
-                                    <h5>Title : <strong>Page Count</strong></h5>
+                                    <h5>Page Count : <strong><%=mailinfo.getMailInfoPageCount() %></strong></h5>
                                 </div>
                                 <div class="col-md-4">
-                                    <h5>Title : <strong>My Number</strong></h5>
+                                    <h5>My Number : <strong><%=mailinfo.getMailInfoMyNo() %></strong></h5>
                                 </div>
 
+                            <hr>
                             </div>
-
                             <%   List<pojo.Attachmant> alit = imageSession.createCriteria(pojo.Attachmant.class).add(Restrictions.eq("mailinfo", mailinfo)).list();
-                                     for (pojo.Attachmant atach : alit) {%>
+                                for (pojo.Attachmant atach : alit) {%>
 
 
 
@@ -75,79 +75,7 @@
                             %>
 
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <hr>
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 1</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 2</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 3</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="/w3images/lights.jpg">
-                                        <img src="../images/lights.jpg" alt="Lights" style="width:100%">
-                                        <div class="caption">
-                                            <p>Page No 4</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
+<!--                        <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Description</label>
@@ -157,7 +85,7 @@
 
                         </div>
 
-                        <!--DeadLine-->
+                        DeadLine
                         <div class="row">
                             <h4><strong>Set Deadline</strong></h4>
                             <div class="col-md-1">
@@ -226,10 +154,11 @@
 
 
 
-                        </div>    <!--DeadLine-->
+                        </div>    DeadLine-->
 
 
-                        <a href="../view/sendto.jsp" class="btn btn-primary pull-right" >Send TO</a>                        
+                        <a href="../view/sendto.jsp" class="btn btn-primary pull-left" >Edit</a>                        
+                        <a href="../SendToCommissioner?latter=<%=request.getParameter("latter")%>" class="btn btn-success pull-right" >Send tO Commissioner</a>                        
                     </div>
                 </div>
             </div>
