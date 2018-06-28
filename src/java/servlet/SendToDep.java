@@ -38,11 +38,9 @@ public class SendToDep extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (request.getParameter("latter") != null) {
-
                 Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
                 Transaction transaction = session.beginTransaction();
                 try {
-
                     int l = Integer.parseInt(request.getParameter("latter"));
                     Mailinfo mi = (pojo.Mailinfo) session.load(pojo.Mailinfo.class, l);
                     mi.setMailInfoComment(request.getParameter("comment"));
@@ -51,7 +49,6 @@ public class SendToDep extends HttpServlet {
                     mi.setMailInfoDeadline(dadline);
                     mi.setMailstatus((pojo.Mailstatus) session.load(pojo.Mailstatus.class, 3));
                     session.update(mi);
-
                     Department department = (pojo.Department) session.load(pojo.Department.class, Integer.parseInt(request.getParameter("dip")));
 
                     Criteria user = session.createCriteria(pojo.User.class);
