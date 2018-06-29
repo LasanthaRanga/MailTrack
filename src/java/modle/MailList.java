@@ -19,7 +19,7 @@ import pojo.User;
  */
 public class MailList {
 
-    public void getRecivedList(int uid) {
+    public HashMap<Integer, pojo.Mailinfo> getRecivedList(int uid) {
 
         Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction().commit();
@@ -42,13 +42,23 @@ public class MailList {
             for (Proces proces : list) {
                 hm.put(proces.getMailinfo().getIdMailInfo(), proces.getMailinfo());
             }
-            
+            return hm;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         } finally {
             session.close();
         }
 
     }
+
+    public int getRecivedCount(int uid) {
+        int x = 0;
+
+        
+        
+        return x = 0;
+    }
+
 }

@@ -1,8 +1,7 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Session"%>
-<% String pname = "just_added";%>
+<% String pname = "fullinfo";%>
 <%@include file="template/navbar.jsp" %>
 <div class="content">
     <div class="container-fluid">
@@ -24,31 +23,31 @@
                                 imageSession.beginTransaction().commit();
                                 try {
                                     pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));%>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <h5>Sender Name : <strong><%=mailinfo.getMailInfoSender() %></strong></h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Institute : <strong><%=mailinfo.getMailInfoInstitute() %></strong></h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Receved Date : <strong><%=mailinfo.getMailInfoReceivedDate() %></strong></h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Mail Category : <strong><%=mailinfo.getMailcatagory().getMailCatagoryCatagory() %></strong></h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Title : <strong><%=mailinfo.getMailInfoTitle() %></strong></h5>
-                                </div>                            
-                                <div class="col-md-4">
-                                    <h5>Page Count : <strong><%=mailinfo.getMailInfoPageCount() %></strong></h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>My Number : <strong><%=mailinfo.getMailInfoMyNo() %></strong></h5>
-                                </div>
 
-                            <hr>
+                            <div class="col-md-8">
+                                <h5>Sender Name : <strong><%=mailinfo.getMailInfoSender()%></strong></h5>
                             </div>
+                            <div class="col-md-4">
+                                <h5>Institute : <strong><%=mailinfo.getMailInfoInstitute()%></strong></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Received Date : <strong><%=mailinfo.getMailInfoReceivedDate()%></strong></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Mail Category : <strong><%=mailinfo.getMailcatagory().getMailCatagoryCatagory()%></strong></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Title : <strong><%=mailinfo.getMailInfoTitle()%></strong></h5>
+                            </div>                            
+                            <div class="col-md-4">
+                                <h5>Page Count : <strong><%=mailinfo.getMailInfoPageCount()%></strong></h5>
+                            </div>
+                            <div class="col-md-8">
+                                <h5>My Number : <strong><%=mailinfo.getMailInfoMyNo()%></strong></h5>
+                            </div>
+
+                            <br>
+
                             <%   List<pojo.Attachmant> alit = imageSession.createCriteria(pojo.Attachmant.class).add(Restrictions.eq("mailinfo", mailinfo)).list();
                                 for (pojo.Attachmant atach : alit) {%>
 
@@ -64,9 +63,17 @@
                                     </a>
                                 </div>
                             </div>
-                            <% }
+                            <% }%>
 
-                                } catch (Exception e) {
+                            <div class="col-md-12">
+                                <p>Comment By Secretary : <strong><%=mailinfo.getMailInfoComment()%></strong></p>
+                            </div>
+
+
+
+
+
+                            <% } catch (Exception e) {
                                     e.printStackTrace();
                                 } finally {
                                     imageSession.close();
@@ -75,9 +82,12 @@
                             %>
 
                         </div>
+                        <div class="row">
 
-                        <a href="../view/sendto.jsp" class="btn btn-primary pull-left" >Edit</a>                        
-                        <a href="../SendToCommissioner?latter=<%=request.getParameter("latter")%>" class="btn btn-success pull-right" >Send tO Commissioner</a>                        
+                        </div>
+
+
+                        <a href="../view/sendto.jsp" class="btn btn-primary pull-left" >Edit</a> 
                     </div>
                 </div>
             </div>

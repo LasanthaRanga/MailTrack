@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String pname = "received_all";%>
 <%@include file="template/navbar.jsp" %>
@@ -22,63 +23,39 @@
                             </thead>
                             <tbody>
 
+                                <%
+                                    Session ms = conn.NewHibernateUtil.getSessionFactory().openSession();
+                                    try {
 
-                               
-
-
-
+                                        HashMap<Integer, pojo.Mailinfo> hm = modle.GetInstans.getMailList().getRecivedList(Integer.parseInt(session.getAttribute("luid").toString()));
+                                        for (Map.Entry<Integer, pojo.Mailinfo> en : hm.entrySet()) {
+                                            Integer key = en.getKey();
+                                            pojo.Mailinfo val = (pojo.Mailinfo)ms.load(pojo.Mailinfo.class, key);
+                                %>
 
 
 
                                 <tr>
 
-                                    <td> 1</td>
-                                    <td> දැන් හරි</td>
-                                    <td> Niger </td>
-                                    <td> 2018.10.10</td>
-                                    <td> Water</td>
-                                    <td><a href="../view/fullview.jsp" class="btn btn-info btn-sm"> Link</a></td>
+                                    <td><%=key%></td>
+                                    <td><%=val.getMailInfoSender()%></td>
+                                    <td><%=val.getMailInfoInstitute()%></td>
+                                    <td><%=val.getMailInfoReceivedDate()%></td>
+                                    <td><%=val.getMailInfoTitle()%></td>
+                                    <td><a href="../view/fullinfo.jsp?latter=<%=key%>" class="btn btn-info btn-sm"> Link</a></td>
                                 </tr>
-                                <tr>
-                                    <td> 2</td>
-                                    <td> Dakota Rice  </td>
-                                    <td> Niger </td>
-                                    <td> 2018.10.10</td>
-                                    <td> Water</td>
-                                    <td><a href="../view/fullview.jsp"> Link</a></td>
-                                </tr>
-                                <tr>
-                                    <td> 3</td>
-                                    <td> Dakota Rice  </td>
-                                    <td> Niger </td>
-                                    <td> 2018.10.10</td>
-                                    <td> Water</td>
-                                    <td><a href="../view/fullview.jsp"> Link</a></td>
-                                </tr>
-                                <tr>
-                                    <td> 4</td>
-                                    <td> Dakota Rice  </td>
-                                    <td> Niger </td>
-                                    <td> 2018.10.10</td>
-                                    <td> Water</td>
-                                    <td><a href=""> Link</a></td>
-                                </tr>
-                                <tr>
-                                    <td> 5</td>
-                                    <td> Dakota Rice  </td>
-                                    <td> Niger </td>
-                                    <td> 2018.10.10</td>
-                                    <td> Water</td>
-                                    <td><a href=""> Link</a></td>
-                                </tr>
-                                <tr>  
-                                    <td>  6 </td>
-                                    <td> Minerva Hooper </td>
-                                    <td> Curaçao </td>
-                                    <td> Sinaai-Waas </td>
-                                    <td>  $23,789 </td>
-                                    <td class="text-primary">  Link </td>
-                                </tr>
+
+
+
+                                <% }
+
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        ms.close();
+                                    }
+                                %>
+
 
                             </tbody>
                         </table>
