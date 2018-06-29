@@ -106,7 +106,7 @@
                         </div>
 
 
-                        <a href="../view/sendto.jsp" class="btn btn-primary pull-left" >Send To Employees Or Other Department</a> 
+                            <a href="../view/sendto.jsp?latter=<%=request.getParameter("latter") %>" class="btn btn-primary pull-left" >Send To Employees Or Other Department</a> 
                     </div>
                 </div>
             </div>
