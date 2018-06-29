@@ -7,8 +7,11 @@ package modle;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import pojo.User;
+import pojo.Userhasdepartment;
 
 /**
  *
@@ -35,5 +38,28 @@ public class Department {
         }
 
     }
+    
+    
+     public String getDepOfLogUser(int luid) {
+         String dip ="";
+        Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
+        try {
+            User user = (pojo.User)session.load(pojo.User.class, luid);
+            Set<Userhasdepartment> userhasdepartments = user.getUserhasdepartments();
+            for (Userhasdepartment userhasdepartment : userhasdepartments) {
+                dip = userhasdepartment.getDepartment().getDepartmentName();
+            }
+           return dip;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return dip;
+        } finally {
+            session.close();
+        }
+
+    }
+    
+    
+    
 
 }
