@@ -17,6 +17,7 @@ public class GetInstans {
     private static modle.NewMail newMail;
     private static modle.UploadMail uploadMail;
     private static modle.MailList mailList;
+    private static modle.Process process;
    
     /**
      * @return the userCategory
@@ -66,6 +67,14 @@ public class GetInstans {
     public static modle.MailList getMailList() {
         if(mailList==null){mailList= new MailList();}
         return mailList;
+    }
+
+    /**
+     * @return the process
+     */
+    public static modle.Process getProcess() {
+        if(process==null){process= new Process(); }
+        return process;
     }
 
     

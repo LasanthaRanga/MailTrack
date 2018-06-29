@@ -84,11 +84,25 @@
                         </div>
                         <div class="row">
 
-                            
-                            
-                            
-                            
-                            
+                            <%  //                              
+                                Session ps = conn.NewHibernateUtil.getSessionFactory().openSession();
+                                try {
+
+                                    
+                                    
+                                } catch (Exception e) {
+                                } finally {
+                                    ps.close();
+                                }
+
+
+                            %>
+
+
+
+
+
+
                         </div>
 
 
