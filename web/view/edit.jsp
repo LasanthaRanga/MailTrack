@@ -91,7 +91,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <form method="" action="">
+                                <form method="POST" action="../SaveComments">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Comment</label>
                                         <textarea name="comment" rows="10" type="text" class="form-control" required=""></textarea>
