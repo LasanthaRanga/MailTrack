@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 22, 2018 9:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 2, 2018 1:15:54 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Attachmant" table="attachmant" catalog="post" optimistic-lock="version">
         <id name="idAttachmant" type="java.lang.Integer">

@@ -83,6 +83,7 @@ public class SendToDep extends HttpServlet {
                         proces.setUserByUserTo(toUser);
                         proces.setUserByUserFrom(fromUser);
                         proces.setProcesOder(processOder);
+                        proces.setProcesStatus(1);
                         session.save(proces);
                         transaction.commit();
                         response.sendRedirect("view/allforhandl.jsp");

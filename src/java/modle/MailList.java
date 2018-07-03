@@ -40,7 +40,9 @@ public class MailList {
             criteria.add(Restrictions.eq("mailstatus", session.load(pojo.Mailstatus.class, mailStatus)));
             List<pojo.Proces> list = criteria.list();
             for (Proces proces : list) {
-                hm.put(proces.getMailinfo().getIdMailInfo(), proces.getMailinfo());
+                if (proces.getProcesStatus() == 1) {
+                    hm.put(proces.getMailinfo().getIdMailInfo(), proces.getMailinfo());
+                }
             }
             return hm;
 
@@ -56,8 +58,6 @@ public class MailList {
     public int getRecivedCount(int uid) {
         int x = 0;
 
-        
-        
         return x = 0;
     }
 

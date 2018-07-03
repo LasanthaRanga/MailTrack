@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>technoaction.lk</title>
+        <title>Mail Track</title>
     </head>
     <body>
-        <img src="uc.gif" style="align-content: center">
+       
     </body>
 </html>

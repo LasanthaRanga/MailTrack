@@ -8,6 +8,7 @@ package modle;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import pojo.Proces;
 
 /**
  *
@@ -15,14 +16,19 @@ import org.hibernate.criterion.Restrictions;
  */
 public class Process {
 
-    public void getProcessData(int mailInfoId) {
+    public void changeProcessStatus(int mailInfoId, int luid) {
         Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction().commit();
         try {
             
             List<pojo.Proces> list = session.createCriteria(pojo.Proces.class).add(Restrictions.eq("mailinfo", session.load(pojo.Mailinfo.class, mailInfoId))).list();
             
-            
+            for (Proces proces : list) {
+                
+               
+                
+                
+            }
             
             
             

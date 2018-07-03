@@ -18,23 +18,26 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Department</label>
-                                    <select name="dip" class="form-control">                                            
-                                        <option value="0"></option>
-                                        <% HashMap<Integer, String> hmd = modle.GetInstans.getDepartment().getDepartmentList();
-                                            for (Map.Entry<Integer, String> en : hmd.entrySet()) {
-                                                Integer key = en.getKey();
-                                                String val = en.getValue();%>
-                                        <option value="<%=key%>"><%=val%></option>
-                                        <%}%>
-                                    </select>                                        
+                        <form action="../SendToDip2" method="POST">
+                            <input type="hidden" name="latter" value="<%=request.getParameter("latter")%>">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Department</label>
+                                        <select name="dip" class="form-control">                                            
+                                            <option value="0"></option>
+                                            <% HashMap<Integer, String> hmd = modle.GetInstans.getDepartment().getDepartmentList();
+                                                for (Map.Entry<Integer, String> en : hmd.entrySet()) {
+                                                    Integer key = en.getKey();
+                                                    String val = en.getValue();%>
+                                            <option value="<%=key%>"><%=val%></option>
+                                            <%}%>
+                                        </select>                                        
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button class="btn btn-primary ">Send To Department Head</button> 
+                            <button type="submit" class="btn btn-primary ">Send To Department Head</button> 
+                        </form>
                     </div>
                 </div>
 
@@ -59,6 +62,7 @@
                                     </thead>
                                     <tbody>
                                     <form method="POST" action="../SendToEmployee">
+                                        <input type="hidden" name="latter" value="<%=request.getParameter("latter")%>">
 
                                         <%
 
@@ -69,14 +73,15 @@
                                                 Set<pojo.Userhasdepartment> userhasdepartments = user.getUserhasdepartments();
                                                 for (pojo.Userhasdepartment userhasdepartment : userhasdepartments) {
                                                     dip = userhasdepartment.getDepartment();
-                                                }
+                                                }%>
+                                        <input type="hidden" name="dip" value="<%=dip.getIdDepartment()%>">
+                                        <%
+                                            Criteria cr = UserSess.createCriteria(pojo.Userhasdepartment.class);
+                                            List<pojo.Userhasdepartment> uhdl = cr.add(Restrictions.eq("department", dip)).list();
 
-                                                Criteria cr = UserSess.createCriteria(pojo.Userhasdepartment.class);
-                                                List<pojo.Userhasdepartment> uhdl = cr.add(Restrictions.eq("department", dip)).list();
+                                            for (pojo.Userhasdepartment uhd : uhdl) {
+                                                if (uhd.getUser() != user) {
 
-                                                for (pojo.Userhasdepartment uhd : uhdl) {
-                                                    if (uhd.getUser() != user) {
-                                                    }
 
                                         %>
 
@@ -89,7 +94,8 @@
                                         </tr>
 
 
-                                        <%  }
+                                        <%      }
+                                            }
 
                                             } catch (Exception e) {
                                                 e.printStackTrace();

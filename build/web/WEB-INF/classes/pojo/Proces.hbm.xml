@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 22, 2018 9:23:15 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 2, 2018 1:15:54 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Proces" table="proces" catalog="post" optimistic-lock="version">
         <id name="idProces" type="java.lang.Integer">
@@ -28,6 +28,9 @@
         </property>
         <property name="procesComent" type="string">
             <column name="Proces_Coment" length="65535" />
+        </property>
+        <property name="procesStatus" type="java.lang.Integer">
+            <column name="Proces_Status" />
         </property>
         <set name="attachmantbyofficers" table="attachmantbyofficer" inverse="true" lazy="true" fetch="select">
             <key>

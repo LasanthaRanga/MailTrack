@@ -1,5 +1,5 @@
 package pojo;
-// Generated Jun 22, 2018 9:23:13 AM by Hibernate Tools 4.3.1
+// Generated Jul 2, 2018 1:15:52 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,6 +19,7 @@ public class Proces  implements java.io.Serializable {
      private User userByUserTo;
      private Integer procesOder;
      private String procesComent;
+     private Integer procesStatus;
      private Set<Attachmantbyofficer> attachmantbyofficers = new HashSet<Attachmantbyofficer>(0);
 
     public Proces() {
@@ -32,7 +33,7 @@ public class Proces  implements java.io.Serializable {
         this.userByUserFrom = userByUserFrom;
         this.userByUserTo = userByUserTo;
     }
-    public Proces(Department department, Mailinfo mailinfo, Mailstatus mailstatus, User userByUserFrom, User userByUserTo, Integer procesOder, String procesComent, Set<Attachmantbyofficer> attachmantbyofficers) {
+    public Proces(Department department, Mailinfo mailinfo, Mailstatus mailstatus, User userByUserFrom, User userByUserTo, Integer procesOder, String procesComent, Integer procesStatus, Set<Attachmantbyofficer> attachmantbyofficers) {
        this.department = department;
        this.mailinfo = mailinfo;
        this.mailstatus = mailstatus;
@@ -40,6 +41,7 @@ public class Proces  implements java.io.Serializable {
        this.userByUserTo = userByUserTo;
        this.procesOder = procesOder;
        this.procesComent = procesComent;
+       this.procesStatus = procesStatus;
        this.attachmantbyofficers = attachmantbyofficers;
     }
    
@@ -98,6 +100,13 @@ public class Proces  implements java.io.Serializable {
     
     public void setProcesComent(String procesComent) {
         this.procesComent = procesComent;
+    }
+    public Integer getProcesStatus() {
+        return this.procesStatus;
+    }
+    
+    public void setProcesStatus(Integer procesStatus) {
+        this.procesStatus = procesStatus;
     }
     public Set<Attachmantbyofficer> getAttachmantbyofficers() {
         return this.attachmantbyofficers;

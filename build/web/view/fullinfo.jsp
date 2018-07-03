@@ -71,42 +71,81 @@
 
 
 
+                            <%
 
-
-                            <% } catch (Exception e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    imageSession.close();
-                                }
+                                List<pojo.Proces> proceses = imageSession.createCriteria(pojo.Proces.class).add(Restrictions.eq("mailinfo", mailinfo)).list();
+                                for (pojo.Proces proces : proceses) {
+                            %>      
+                            <div class="col-md-8">
+                                <hp>By <%=proces.getUserByUserTo().getUserFullName() %> : <strong><%=proces.getProcesComent() %></strong></hp>
+                            </div>
+                            <br>
+                            <% }
 
                             %>
 
+
+
+
+
                         </div>
+                        <div class="row">
+
+
+
+
+
+
+
+                        </div>
+
+                        <%                            pojo.User u = (pojo.User) imageSession.load(pojo.User.class, Integer.parseInt(request.getSession().getAttribute("luid").toString()));
+
+                            if (u.getUsercatagory().getIdUserCatagory() != 5) {%>
+
                         <div class="row">
+                            <div class="col-md-12">
+                                <form method="POST" action="../DipHead">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Comment</label>
+                                            <textarea name="comment" type="text" class="form-control" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" value="<%=request.getParameter("latter")%>" name="latterno" class="btn btn-primary">Send</button>
 
-                            <%  //                              
-                                Session ps = conn.NewHibernateUtil.getSessionFactory().openSession();
-                                try {
+                                </form>
+                            </div>
+                        </div>
 
-                                    
-                                    
-                                } catch (Exception e) {
-                                } finally {
-                                    ps.close();
-                                }
-
-
-                            %>
-
-
-
+                        <%  } else {%>
 
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-primary" href="edit.jsp?latter=<%=request.getParameter("latter")%>">EDIT</a>
+                            </div>
 
                         </div>
 
 
-                            <a href="../view/sendto.jsp?latter=<%=request.getParameter("latter") %>" class="btn btn-primary pull-left" >Send To Employees Or Other Department</a> 
+                        <% } %>
+
+
+
+
+
+
+
+                        <% } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                imageSession.close();
+                            }
+
+                        %>
+
+
                     </div>
                 </div>
             </div>
