@@ -56,7 +56,7 @@
 
                             <hr>
 
-                        <form action="../UpMailDoc" method="post" enctype="multipart/form-data">
+                        <form action="../UpMailAtch" method="post" enctype="multipart/form-data">
 
                             <div class="row">
                                 <div class="col-md-3">

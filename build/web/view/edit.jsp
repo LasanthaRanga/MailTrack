@@ -96,15 +96,13 @@
                                         <label class="bmd-label-floating">Comment</label>
                                         <textarea name="comment" rows="10" type="text" class="form-control" required=""></textarea>
                                     </div>
-                                    <button type="submit" value="<%=request.getParameter("latter")%>" name="latterno" class="btn btn-success">Save</button>
+                                    <button type="submit" value="<%=request.getParameter("latter")%>" name="latter" class="btn btn-success">Edit &  Save</button>
                                 </form>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <form method="POST" action="upload_attach.jsp">                                   
-                                    <button type="submit" value="<%=request.getParameter("latter")%>" name="latterno" class="btn btn-primary pull-right">Upload</button>
-                                </form>
+                            <div class="col-md-12">           
+                                <a href="upload_attach.jsp?latter=<%=request.getParameter("latter")%>"  name="latterno" class="btn btn-primary pull-right">Upload</a>                             
                             </div>
                         </div>
 

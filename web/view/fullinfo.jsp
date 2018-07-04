@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.Criteria"%>
 <%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Session"%>
@@ -77,7 +78,7 @@
                                 for (pojo.Proces proces : proceses) {
                             %>      
                             <div class="col-md-8">
-                                <hp>By <%=proces.getUserByUserTo().getUserFullName() %> : <strong><%=proces.getProcesComent() %></strong></hp>
+                                <hp>By <%=proces.getUserByUserTo().getUserFullName()%> : <strong><%=proces.getProcesComent()%></strong></hp>
                             </div>
                             <br>
                             <% }
@@ -89,14 +90,22 @@
 
 
                         </div>
+                        <hr>
                         <div class="row">
+                            <div class="col-md-12">
+                            <h3>Attachments</h3>
+                            <%  Criteria ca = imageSession.createCriteria(pojo.Attachmantbyofficer.class);
+                                ca.add(Restrictions.eq("mailinfo", mailinfo));
+                                List<pojo.Attachmant> alist = ca.list();
+                                for (pojo.Attachmant at : alist) {
+                                    String apath = at.getAttachmantPath();
+                                    String aTitle = at.getAttachmantTitle();
+                                    int aNo = at.getAttachmantNumber();
+                                }
+                            %>
 
 
-
-
-
-
-
+                            </div>
                         </div>
 
                         <%                            pojo.User u = (pojo.User) imageSession.load(pojo.User.class, Integer.parseInt(request.getSession().getAttribute("luid").toString()));
