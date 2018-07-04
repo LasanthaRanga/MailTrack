@@ -7,10 +7,18 @@
 <div class="content">
     <div class="container-fluid">
         <div class="col-md-12" >
+
+
+            <%
+                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
+                imageSession.beginTransaction().commit();
+                try {
+                    pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));%>
+
             <div class="card">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title">Full Info Of Mail</h4>
-                    <p class="card-category">All Details</p>
+                    <h4 class="card-title"><%=mailinfo.getMailInfoTitle()%></h4>
+                    <p class="card-category"><%=mailinfo.getMailInfoSender()%></p>
                 </div>
                 <div class="card-body">
                     <div class="card-body">
@@ -19,11 +27,7 @@
                         <div class="row">
 
 
-                            <%
-                                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
-                                imageSession.beginTransaction().commit();
-                                try {
-                                    pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));%>
+
 
                             <div class="col-md-8">
                                 <h5>Sender Name : <strong><%=mailinfo.getMailInfoSender()%></strong></h5>
@@ -93,19 +97,36 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-12">
-                            <h3>Attachments</h3>
+                                <h3>Attachments</h3>
+                            </div>
                             <%  Criteria ca = imageSession.createCriteria(pojo.Attachmantbyofficer.class);
                                 ca.add(Restrictions.eq("mailinfo", mailinfo));
-                                List<pojo.Attachmant> alist = ca.list();
-                                for (pojo.Attachmant at : alist) {
-                                    String apath = at.getAttachmantPath();
-                                    String aTitle = at.getAttachmantTitle();
-                                    int aNo = at.getAttachmantNumber();
-                                }
+                                List<pojo.Attachmantbyofficer> alist = ca.list();
+                                for (pojo.Attachmantbyofficer at : alist) {
+                                    String apath = at.getAttachmantByOfficerPath();
+                                    String aTitle = at.getAttachmantByOfficerTitle();
+                                    int aNo = at.getAttachmantByOfficerNumber();
+                                    String un = at.getUser().getUserFullName();
+
                             %>
 
 
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="<%=apath%>">
+                                        <img src="<%=apath%>" alt="Click Here To View" style="width:100%">
+
+                                    </a>
+                                    <div class="caption">
+                                        <p>No :<%=aNo%> <br>Title :<%=aTitle%><br>By : <%=un%></p>                                              
+                                    </div>
+                                </div>
                             </div>
+
+
+
+                            <% }
+                            %>
                         </div>
 
                         <%                            pojo.User u = (pojo.User) imageSession.load(pojo.User.class, Integer.parseInt(request.getSession().getAttribute("luid").toString()));
@@ -124,6 +145,14 @@
                                     <button type="submit" value="<%=request.getParameter("latter")%>" name="latterno" class="btn btn-primary">Send</button>
 
                                 </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <a class="btn btn-primary" href="edit.jsp?latter=<%=request.getParameter("latter")%>">EDIT</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 

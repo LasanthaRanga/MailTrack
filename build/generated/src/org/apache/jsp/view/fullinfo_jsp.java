@@ -3,6 +3,7 @@ package org.apache.jsp.view;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import java.util.List;
 import org.hibernate.Session;
@@ -53,6 +54,7 @@ public final class fullinfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -379,10 +381,24 @@ public final class fullinfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div class=\"content\">\n");
       out.write("    <div class=\"container-fluid\">\n");
       out.write("        <div class=\"col-md-12\" >\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("            ");
+
+                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
+                imageSession.beginTransaction().commit();
+                try {
+                    pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));
+      out.write("\n");
+      out.write("\n");
       out.write("            <div class=\"card\">\n");
       out.write("                <div class=\"card-header card-header-primary\">\n");
-      out.write("                    <h4 class=\"card-title\">Full Info Of Mail</h4>\n");
-      out.write("                    <p class=\"card-category\">All Details</p>\n");
+      out.write("                    <h4 class=\"card-title\">");
+      out.print(mailinfo.getMailInfoTitle() );
+      out.write("</h4>\n");
+      out.write("                    <p class=\"card-category\">");
+      out.print(mailinfo.getMailInfoSender() );
+      out.write("</p>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"card-body\">\n");
       out.write("                    <div class=\"card-body\">\n");
@@ -391,12 +407,6 @@ public final class fullinfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"row\">\n");
       out.write("\n");
       out.write("\n");
-      out.write("                            ");
-
-                                Session imageSession = conn.NewHibernateUtil.getSessionFactory().openSession();
-                                imageSession.beginTransaction().commit();
-                                try {
-                                    pojo.Mailinfo mailinfo = (pojo.Mailinfo) imageSession.load(pojo.Mailinfo.class, Integer.parseInt(request.getParameter("latter")));
       out.write("\n");
       out.write("\n");
       out.write("                            <div class=\"col-md-8\">\n");
@@ -472,41 +482,87 @@ public final class fullinfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("                            ");
- } catch (Exception e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    imageSession.close();
-                                }
+
+
+                                List<pojo.Proces> proceses = imageSession.createCriteria(pojo.Proces.class).add(Restrictions.eq("mailinfo", mailinfo)).list();
+                                for (pojo.Proces proces : proceses) {
+                            
+      out.write("      \n");
+      out.write("                            <div class=\"col-md-8\">\n");
+      out.write("                                <hp>By ");
+      out.print(proces.getUserByUserTo().getUserFullName());
+      out.write(" : <strong>");
+      out.print(proces.getProcesComent());
+      out.write("</strong></hp>\n");
+      out.write("                            </div>\n");
+      out.write("                            <br>\n");
+      out.write("                            ");
+ }
 
                             
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("                        </div>\n");
+      out.write("                        <hr>\n");
       out.write("                        <div class=\"row\">\n");
-      out.write("\n");
+      out.write("                            <div class=\"col-md-12\">\n");
+      out.write("                                <h3>Attachments</h3>\n");
+      out.write("                            </div>\n");
       out.write("                            ");
-  //                              
-                                Session ps = conn.NewHibernateUtil.getSessionFactory().openSession();
-                                try {
-
-                                } catch (Exception e) {
-                                } finally {
-                                    ps.close();
-                                }
-
+  Criteria ca = imageSession.createCriteria(pojo.Attachmantbyofficer.class);
+                                ca.add(Restrictions.eq("mailinfo", mailinfo));
+                                List<pojo.Attachmantbyofficer> alist = ca.list();
+                                for (pojo.Attachmantbyofficer at : alist) {
+                                    String apath = at.getAttachmantByOfficerPath();
+                                    String aTitle = at.getAttachmantByOfficerTitle();
+                                    int aNo = at.getAttachmantByOfficerNumber();
+                                    String un = at.getUser().getUserFullName();
 
                             
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("                            <div class=\"col-md-3\">\n");
+      out.write("                                <div class=\"thumbnail\">\n");
+      out.write("                                    <a href=\"");
+      out.print(apath);
+      out.write("\">\n");
+      out.write("                                        <img src=\"");
+      out.print(apath);
+      out.write("\" alt=\"Click Here To View\" style=\"width:100%\">\n");
+      out.write("\n");
+      out.write("                                    </a>\n");
+      out.write("                                    <div class=\"caption\">\n");
+      out.write("                                        <p>No :");
+      out.print(aNo);
+      out.write(" <br>Title :");
+      out.print(aTitle);
+      out.write("<br>By : ");
+      out.print(un);
+      out.write("</p>                                              \n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("                            ");
+ }
+                            
       out.write("\n");
       out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        ");
+                            pojo.User u = (pojo.User) imageSession.load(pojo.User.class, Integer.parseInt(request.getSession().getAttribute("luid").toString()));
+
+                            if (u.getUsercatagory().getIdUserCatagory() != 5) {
+      out.write("\n");
+      out.write("\n");
       out.write("                        <div class=\"row\">\n");
       out.write("                            <div class=\"col-md-12\">\n");
       out.write("                                <form method=\"POST\" action=\"../DipHead\">\n");
@@ -523,6 +579,42 @@ public final class fullinfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        ");
+  } else {
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col-md-12\">\n");
+      out.write("                                <a class=\"btn btn-primary\" href=\"edit.jsp?latter=");
+      out.print(request.getParameter("latter"));
+      out.write("\">EDIT</a>\n");
+      out.write("                            </div>\n");
+      out.write("\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                        ");
+ } 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                        ");
+ } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                imageSession.close();
+                            }
+
+                        
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");

@@ -62,7 +62,7 @@ public class SaveComments extends HttpServlet {
                 pro.setProcesComent(comment);
                 session.update(pro);
                 transaction.commit();
-
+                response.sendRedirect("view/edit.jsp?latter="+latter);
             } catch (Exception e) {
                 e.printStackTrace();
                 transaction.rollback();

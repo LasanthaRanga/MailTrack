@@ -50,6 +50,7 @@ public class UpMailAtch extends HttpServlet {
 
                 String txt = "";
                 String latterNo = "";
+                String atitle = "";
                 String thumb = "";
                 String path = "";
 
@@ -73,6 +74,12 @@ public class UpMailAtch extends HttpServlet {
                             latterNo = fileItem.getString();
                             //  System.out.println(latterNo);
                         }
+                        if (fileItem.getFieldName().equals("atitle")) {
+
+                            atitle = fileItem.toString();
+                            atitle = fileItem.getString();
+                           
+                        }
 
                     } else if (fileItem.getFieldName().equals("fupload")) {
                         thumb = "A" + latterNo + "_P" + txt + "_" + Math.random() + fileItem.getName();
@@ -86,9 +93,9 @@ public class UpMailAtch extends HttpServlet {
                         System.out.print(txt + "  = number");
                     }
                 }
-                boolean uploadInfo = modle.GetInstans.getUploadMail().uploadAttach(path, Integer.parseInt(latterNo), uid, Integer.parseInt(txt), txt);
+                boolean uploadInfo = modle.GetInstans.getUploadMail().uploadAttach(path, Integer.parseInt(latterNo), uid, Integer.parseInt(txt), atitle);
                 if (uploadInfo) {
-                    response.sendRedirect("view/upload_mail.jsp?latter=" + latterNo);
+                    response.sendRedirect("view/upload_attach.jsp?latter=" + latterNo);
                 } else {
                     //upload save eroor
                 }
