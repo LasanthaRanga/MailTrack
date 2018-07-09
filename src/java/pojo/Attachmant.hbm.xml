@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 10, 2018 4:31:38 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Attachmant" table="attachmant" catalog="post" optimistic-lock="version">
+        <id name="idAttachmant" type="java.lang.Integer">
+            <column name="idAttachmant" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="mailinfo" class="pojo.Mailinfo" fetch="select">
+            <column name="MailInfo_idMailInfo" not-null="true" />
+        </many-to-one>
+        <property name="attachmantTitle" type="string">
+            <column name="Attachmant_title" length="45" />
+        </property>
+        <property name="attachmantPath" type="string">
+            <column name="Attachmant_path" />
+        </property>
+        <property name="attachmantNumber" type="java.lang.Integer">
+            <column name="Attachmant_Number" />
+        </property>
+    </class>
+</hibernate-mapping>

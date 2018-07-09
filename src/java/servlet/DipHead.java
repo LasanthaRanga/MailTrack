@@ -43,6 +43,8 @@ public class DipHead extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            
+            
             int luid = Integer.parseInt(request.getSession().getAttribute("luid").toString());
             int latter = Integer.parseInt(request.getParameter("latterno"));
             String comment = request.getParameter("comment");
