@@ -45,7 +45,7 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/post?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="pojo/Attachmant.hbm.xml"/>
     <mapping resource="pojo/Department.hbm.xml"/>
     <mapping resource="pojo/Cupboard.hbm.xml"/>
