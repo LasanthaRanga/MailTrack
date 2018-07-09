@@ -168,12 +168,12 @@
                                     }
                                 }
                             }%>
-                            
-                            
-                            
-                            <%   if (plList != null) {
-                                for (Map.Entry<String, String> entry : plList.entrySet()) {
-                                    if (entry.getKey().equals("just_added")) {%> 
+
+
+
+                        <%   if (plList != null) {
+                                    for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                        if (entry.getKey().equals("just_added")) {%> 
                         <li class="nav-item <% if (pname.equals("just_added")) {
                                 out.print("active");
                             }%>">
@@ -186,12 +186,12 @@
                                     }
                                 }
                             }%>
-                            
-                            
-                            
-                            <%   if (plList != null) {
-                                for (Map.Entry<String, String> entry : plList.entrySet()) {
-                                    if (entry.getKey().equals("allfor_handl")) {%> 
+
+
+
+                        <%   if (plList != null) {
+                                    for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                        if (entry.getKey().equals("allfor_handl")) {%> 
                         <li class="nav-item <% if (pname.equals("allfor_handl")) {
                                 out.print("active");
                             }%>">
@@ -204,9 +204,28 @@
                                     }
                                 }
                             }%>
-                            
-                            
-                            
+
+
+                        <%   if (plList != null) {
+                                     for (Map.Entry<String, String> entry : plList.entrySet()) {
+                                         if (entry.getKey().equals("search")) {%> 
+                        <li class="nav-item <% if (pname.equals("search")) {
+                                out.print("active");
+                            }%>">
+                            <a class="nav-link" href="../view/search.jsp">
+                                <i class="material-icons">search</i>
+                                <p>Search</p>
+                            </a>
+                        </li>
+                        <% break;
+                                    }
+                                }
+                            }%>
+
+
+
+
+
 
                     </ul>
                 </div>
@@ -228,22 +247,22 @@
 
                             <ul class="navbar-nav">
 
-<!--                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">notifications</i>
-                                        <span class="notification">5</span>
-                                        <p>
-                                            <span class="d-lg-none d-md-block">Some Actions</span>
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a class="dropdown-item" href="#">Another Notification</a>
-                                        <a class="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>-->
+                                <!--                                <li class="nav-item dropdown">
+                                                                    <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="material-icons">notifications</i>
+                                                                        <span class="notification">5</span>
+                                                                        <p>
+                                                                            <span class="d-lg-none d-md-block">Some Actions</span>
+                                                                        </p>
+                                                                    </a>
+                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                                                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                                                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                                                        <a class="dropdown-item" href="#">Another Notification</a>
+                                                                        <a class="dropdown-item" href="#">Another One</a>
+                                                                    </div>
+                                                                </li>-->
 
 
 
