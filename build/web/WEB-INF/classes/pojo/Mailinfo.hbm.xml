@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 10, 2018 4:31:38 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Mailinfo" table="mailinfo" catalog="post" optimistic-lock="version">
+        <id name="idMailInfo" type="java.lang.Integer">
+            <column name="idMailInfo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="mailcatagory" class="pojo.Mailcatagory" fetch="select">
+            <column name="MailCatagory_idMailCatagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mailstatus" class="pojo.Mailstatus" fetch="select">
+            <column name="MailStatus_currentStatus" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
+        <property name="mailInfoSender" type="string">
+            <column name="MailInfo_Sender" />
+        </property>
+        <property name="mailInfoInstitute" type="string">
+            <column name="MailInfo_Institute" length="45" />
+        </property>
+        <property name="mailInfoReceivedDate" type="date">
+            <column name="MailInfo_ReceivedDate" length="10" />
+        </property>
+        <property name="mailInfoDateOfLatter" type="date">
+            <column name="MailInfo_DateOfLatter" length="10" />
+        </property>
+        <property name="mailInfoTitle" type="string">
+            <column name="MailInfo_Title" />
+        </property>
+        <property name="mailInfoAssessmentNo" type="string">
+            <column name="MailInfo_AssessmentNo" length="45" />
+        </property>
+        <property name="mailInfoMyNo" type="string">
+            <column name="MailInfo_MyNo" length="45" />
+        </property>
+        <property name="mailInfoDeadline" type="date">
+            <column name="MailInfo_Deadline" length="10" />
+        </property>
+        <property name="mailInfoPageCount" type="java.lang.Integer">
+            <column name="MailInfo_PageCount" />
+        </property>
+        <property name="mailInfoComment" type="string">
+            <column name="MailInfo_Comment" />
+        </property>
+        <set name="proceses" table="proces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MailInfo_idMailInfo" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Proces" />
+        </set>
+        <set name="attachmants" table="attachmant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MailInfo_idMailInfo" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Attachmant" />
+        </set>
+        <set name="attachmantbyofficers" table="attachmantbyofficer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MailInfo_idMailInfo" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Attachmantbyofficer" />
+        </set>
+    </class>
+</hibernate-mapping>
