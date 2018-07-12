@@ -52,7 +52,9 @@ public class Login extends HttpServlet {
                         criteria.add(Restrictions.eq("userEmail", request.getParameter("email")));
                         criteria.add(Restrictions.eq("userPassword", modle.MD5.cryptWithMD5(request.getParameter("pword"))));
                         User user = (pojo.User) criteria.uniqueResult();
+                     //   System.out.println("++++++++++++++++++++++++++++++++++++");
                         if (user != null) {
+                            System.out.println("user Not Null");
                             if (user.getUserStatus() == 0) {
                             } else if (user.getUserStatus() == 1) {
 
@@ -64,6 +66,7 @@ public class Login extends HttpServlet {
                                 for (pojo.Privilege privilege : pl) {
                                     al.put(privilege.getPrivilegeName(), privilege.getPrivilegePath());
                                    // al.add(privilege.getPrivilegeName());
+                                   // System.out.println("Add Privilages");
                                 }
                                 request.getSession().setAttribute("pl", al);
                                 response.sendRedirect("view/mymail.jsp");

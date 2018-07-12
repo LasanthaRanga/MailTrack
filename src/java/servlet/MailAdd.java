@@ -33,9 +33,9 @@ public class MailAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
-            if (!request.getParameter("ryear").equals("")) {
-                if (!request.getParameter("rmonth").equals(0)) {
-                    if (!request.getParameter("rdate").equals(0)) {
+            if (Integer.parseInt(request.getParameter("ryear"))>2000 && 2100 > Integer.parseInt(request.getParameter("ryear")) ) {
+                if (Integer.parseInt(request.getParameter("rmonth"))>0) {
+                    if (Integer.parseInt(request.getParameter("rdate"))>0) {
                         //=====================
                         String ry = request.getParameter("ryear");
                         String rm = request.getParameter("rmonth");
@@ -44,9 +44,9 @@ public class MailAdd extends HttpServlet {
                         Date rdate = new SimpleDateFormat("yyyy-MM-dd").parse(rday);
 
                         //=====================
-                        if (!request.getParameter("lyear").equals("")) {
-                            if (!request.getParameter("lmonth").equals(0)) {
-                                if (!request.getParameter("ldate").equals(0)) {
+                        if (Integer.parseInt(request.getParameter("lyear"))> 2000 && 2100 >Integer.parseInt(request.getParameter("lyear"))) {
+                            if (Integer.parseInt(request.getParameter("lmonth"))>0) {
+                                if (Integer.parseInt(request.getParameter("ldate"))>0) {
                                     //==================
                                     String ly = request.getParameter("lyear");
                                     String lm = request.getParameter("lmonth");
@@ -71,25 +71,35 @@ public class MailAdd extends HttpServlet {
                                           if (saveNewMail>0) {
                                               response.sendRedirect("view/upload_mail.jsp?latter="+saveNewMail);
                                             } else {
+                                               response.sendRedirect("view/create_new.jsp?error=Please cheack Data and Try Again");
                                           }
                                         } else {
+                                             response.sendRedirect("view/create_new.jsp?error=Please Mail Catagory");
                                         }
                                     } else {
+                                        response.sendRedirect("view/create_new.jsp?error=Please Page Count");
                                     }
                                 } else {
+                                     response.sendRedirect("view/create_new.jsp?error=Please Latter Date");
                                 }
                             } else {
+                                response.sendRedirect("view/create_new.jsp?error=Please Latter Month");
                             }
                         } else {
+                             response.sendRedirect("view/create_new.jsp?error=Please Cheack Latter Year");
                         }
                     } else {
+                        response.sendRedirect("view/create_new.jsp?error=Please Select Date");
                     }
                 } else {
+                    response.sendRedirect("view/create_new.jsp?error=Please Select Month");
                 }
             } else {
+                response.sendRedirect("view/create_new.jsp?error=Please Cheack Receve Year");
             }
         } catch (Exception e) {
             e.printStackTrace();
+             response.sendRedirect("view/create_new.jsp?error=Please Cheack Data");
         }
     }
 

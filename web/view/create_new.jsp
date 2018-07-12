@@ -12,6 +12,21 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
+
+                        <% if (request.getParameter("error") != null) {%>
+                        <div class="alert alert-warning">
+                            <button type = "button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <i class="material-icons">close</i> 
+                            </button> 
+                            <span>
+                                <b> Warning - </b> <%=request.getParameter("error")  %></span> 
+                        </div>
+
+
+                        <%  } %>
+
+
+
                         <form method="POST" action="../MailAdd">
                             <div class="row">
                                 <div class="col-md-7">
@@ -204,9 +219,9 @@
                                             <label class="control-label">Mail Category</label>
                                             <select class="form-control" name="mailcat">
                                                 <option value="0">Select One</option>
-                                                <% for(Map.Entry<Integer, String> cl :modle.GetInstans.getMailCatagory().getCatagoryList().entrySet()){ %>                                                
+                                                <% for (Map.Entry<Integer, String> cl : modle.GetInstans.getMailCatagory().getCatagoryList().entrySet()) {%>                                                
                                                 <option value="<%=cl.getKey()%>"><%=cl.getValue()%></option>                                                
-                                                <% } %>
+                                                <% }%>
                                             </select>
                                         </div>
                                     </div>

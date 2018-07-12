@@ -12,6 +12,7 @@
         <title>Mail Track</title>
     </head>
     <body>
+        <h1>Mail Track</h1>
         <a href="view/login.jsp"> LOGIN Here </a>
     </body>
 </html>

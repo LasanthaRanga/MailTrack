@@ -57,7 +57,6 @@
                             <hr>
 
                         <form action="../UpMailDoc" method="post" enctype="multipart/form-data">
-
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">

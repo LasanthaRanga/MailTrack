@@ -76,7 +76,7 @@
 
                         </div>
 
-                        <a href="../view/sendto.jsp" class="btn btn-primary pull-left" >Edit</a>                        
+                        <a href="../view/justedit.jsp?latter=<%=request.getParameter("latter")%>" class="btn btn-primary pull-left" >Edit</a>                        
                         <a href="../SendToCommissioner?latter=<%=request.getParameter("latter")%>" class="btn btn-success pull-right" >Send tO Commissioner</a>                        
                     </div>
                 </div>

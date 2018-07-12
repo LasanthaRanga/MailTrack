@@ -79,9 +79,9 @@ public class UpMailDoc extends HttpServlet {
                         System.out.print(txt + "  = number");
                     }
                 }
-               // boolean uploadInfo = modle.GetInstans.getUploadMail().uploadInfo(path, Integer.parseInt(txt), Integer.parseInt(latterNo));
-                if (true) {
-                    response.sendRedirect("view/upload_attach.jsp?latter=" + latterNo);
+                boolean uploadInfo = modle.GetInstans.getUploadMail().uploadInfo(path, Integer.parseInt(txt), Integer.parseInt(latterNo));
+                if (uploadInfo) {
+                    response.sendRedirect("view/upload_mail.jsp?latter=" + latterNo);
                 } else {
                     //upload save eroor
                 }
